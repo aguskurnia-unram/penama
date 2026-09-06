@@ -81,9 +81,16 @@ pribadi), gunakan paket berbayar, atau terbitkan lewat Cloudflare Pages / Worker
 `aksara` seperti dijelaskan di [`docs/integrasi-aksara.md`](docs/integrasi-aksara.md).
 
 **Catatan domain.** `penama.online` sudah dirutekan ke Cloudflare Worker
-`aksara` milik repositori AKSARA. Karena itu repositori ini tidak menyertakan
-berkas `CNAME`. Gunakan subdomain terpisah (mis. `info.penama.online`) atau
-sajikan sebagai sub-path Worker — dua opsi tersebut dijelaskan di
+`aksara` milik repositori AKSARA, sehingga portal ini memakai subdomain
+terpisah: berkas [`CNAME`](CNAME) berisi `info.penama.online`. Agar aktif,
+tambahkan satu data DNS di Cloudflare:
+
+| Tipe | Nama | Tujuan | Proxy |
+|---|---|---|---|
+| CNAME | `info` | `aguskurnia-unram.github.io` | DNS only (awan abu-abu) |
+
+Proxy Cloudflare harus dimatikan untuk data ini agar GitHub dapat menerbitkan
+sertifikat TLS-nya. Alternatif tanpa GitHub Pages dijelaskan di
 [`docs/integrasi-aksara.md`](docs/integrasi-aksara.md).
 
 ## Kaitan dengan AKSARA

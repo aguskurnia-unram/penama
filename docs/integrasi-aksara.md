@@ -71,3 +71,26 @@ atas) sehingga CORS tidak diperlukan sama sekali.
 - **Luaran penelitian dari kelas.** Karya mahasiswa/dosen yang layak publik dapat
   dipromosikan ke `data/penelitian.json` melalui pengajuan perubahan manual —
   bukan sinkronisasi otomatis, agar verifikasi tetap melekat pada manusia.
+
+## 4. Status integrasi saat ini
+
+Sudah terpasang di sisi AKSARA (`worker/penamaPortal.ts`, dipasang di
+`/api/portal`):
+
+| Rute | Isi | Catatan |
+|---|---|---|
+| `GET /api/portal/dosen` | direktori dosen | hanya entri `terverifikasi`; `?semua=1` menampilkan semuanya |
+| `GET /api/portal/penelitian` | penelitian + wadah publikasi | penyaringan sama |
+| `GET /api/portal/matakuliah` | struktur MKWK & MKWI | diteruskan apa adanya |
+
+Sifatnya publik tanpa autentikasi — isinya memang informasi publik. Pengambilan
+dilakukan di sisi Worker, bukan di browser, sehingga portal tidak perlu header
+CORS sama sekali. Jawaban di-cache satu jam lewat `cf: { cacheTtl }`, dan bila
+portal tidak dapat dihubungi rutenya menjawab `503` dengan pesan berbahasa
+Indonesia yang bisa langsung ditampilkan di antarmuka — kegagalan portal tidak
+pernah menjatuhkan halaman AKSARA.
+
+Alamat portal diatur lewat variabel `PENAMA_PORTAL_URL` di `wrangler.jsonc`
+(bawaan `https://info.penama.online`); untuk pengembangan lokal, timpa di
+`.dev.vars`, misalnya `PENAMA_PORTAL_URL="http://localhost:8099"` sambil
+menjalankan `python3 -m http.server 8099` di repositori ini.
