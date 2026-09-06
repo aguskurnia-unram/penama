@@ -71,8 +71,14 @@ sunting generatornya, bukan HTML-nya. CI memverifikasi keduanya tetap sinkron.
 
 Alur kerja [`.github/workflows/pages.yml`](.github/workflows/pages.yml)
 menerbitkan situs ke GitHub Pages pada setiap push ke `main`, setelah
-pemeriksaan data lolos. Aktifkan sekali di **Settings → Pages → Source: GitHub
-Actions**.
+pemeriksaan data lolos.
+
+**Aktivasi pertama harus dilakukan manual** di **Settings → Pages → Source:
+GitHub Actions**. Langkah `actions/configure-pages` sudah memakai
+`enablement: true`, tetapi `GITHUB_TOKEN` milik Actions tidak berwenang membuat
+situs Pages pada repositori milik perorangan — API menjawab *"Resource not
+accessible by integration"*. Setelah situsnya ada, langkah itu menemukannya dan
+seluruh alur berjalan otomatis pada setiap push berikutnya.
 
 **Repositori ini masih berstatus privat.** GitHub Pages pada repositori privat
 hanya tersedia untuk paket berbayar (GitHub Pro/Team/Enterprise). Ada tiga jalan:
