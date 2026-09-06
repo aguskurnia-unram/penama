@@ -6,7 +6,8 @@
     "terakhir_diperbarui": "2026-09-06",
     "catatan_verifikasi": "Status \"terverifikasi\" berarti entri memiliki tautan sumber publik yang dapat ditelusuri pada kolom sumber. Status \"menunggu_verifikasi\" berarti nama dinyatakan oleh pengelola mata kuliah — dicatat pada kolom atestasi — namun tautan profil resminya (SINTA, Google Scholar, atau halaman staf Unram) belum dilampirkan; entri seperti ini belum layak dikutip sebagai data resmi. Nomor induk pegawai (NIP/NIDN) tidak dicantumkan sebelum ada persetujuan tertulis dari yang bersangkutan dan Pusat MKWK.",
     "kebijakan_data_pribadi": "Direktori ini hanya memuat data profesional yang telah dipublikasikan secara terbuka oleh dosen yang bersangkutan (profil Scholar/SINTA/ResearchGate, halaman resmi unit). Permintaan koreksi atau penghapusan dapat diajukan melalui Pusat MKWK LPMPP Unram.",
-    "catatan_portal_materi": "Setiap dosen dapat memiliki portal materi pembelajaran mandiri. Isi bidang portal_materi dengan url dan nama portalnya; biarkan null bila belum ada, dan kartu akan menampilkan keterangan bahwa portalnya belum tersedia."
+    "catatan_portal_materi": "Setiap dosen dapat memiliki portal materi pembelajaran mandiri. Isi bidang portal_materi dengan url dan nama portalnya; biarkan null bila belum ada, dan kartu akan menampilkan keterangan bahwa portalnya belum tersedia.",
+    "catatan_homebase": "Homebase adalah program studi atau fakultas asal dosen; dosen MKWK mengampu Pendidikan Agama Islam lintas fakultas sehingga homebase-nya kerap berbeda dari unit pengampu. Nilai null berarti belum ada keterangan."
   },
   "dosen": [
     {
@@ -43,7 +44,7 @@
         "https://scholar.google.co.id/citations?hl=id&user=O-mJypoAAAAJ",
         "https://www.researchgate.net/profile/Agus-Kurnia"
       ],
-      "homebase": null,
+      "homebase": "Prodi Matematika, FMIPA",
       "foto": null,
       "atestasi": null,
       "portal_materi": {
@@ -60,7 +61,7 @@
       "status_verifikasi": "terverifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
-      "homebase": null,
+      "homebase": "FKIK",
       "foto": null,
       "mata_kuliah_diampu": [
         "Pendidikan Agama Islam"
@@ -91,7 +92,7 @@
       "status_verifikasi": "menunggu_verifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
-      "homebase": null,
+      "homebase": "Prodi Sosiologi, FHISIP",
       "foto": null,
       "mata_kuliah_diampu": [
         "Pendidikan Agama Islam"
@@ -115,7 +116,7 @@
       "status_verifikasi": "menunggu_verifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
-      "homebase": null,
+      "homebase": "Prodi PKn, FKIP",
       "foto": null,
       "mata_kuliah_diampu": [
         "Pendidikan Agama Islam"
@@ -163,7 +164,7 @@
       "status_verifikasi": "menunggu_verifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
-      "homebase": null,
+      "homebase": "Prodi Ekonomi Pembangunan, FEB",
       "foto": null,
       "mata_kuliah_diampu": [
         "Pendidikan Agama Islam"
@@ -187,7 +188,7 @@
       "status_verifikasi": "menunggu_verifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
-      "homebase": null,
+      "homebase": "Prodi Agroekoteknologi, Fakultas Pertanian",
       "foto": null,
       "mata_kuliah_diampu": [
         "Pendidikan Agama Islam"

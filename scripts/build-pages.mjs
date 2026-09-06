@@ -216,7 +216,7 @@ halaman['dosen.html'] = {
   <div class="catatan" style="margin-bottom:26px"><strong>Kebijakan data.</strong> Direktori hanya memuat data profesional; nomor induk pegawai (NIP/NIDN), kontak pribadi, dan data pribadi lain tidak ditayangkan tanpa persetujuan tertulis.<br><br>Setiap entri diberi status yang kasatmata. <span class="badge badge-ok">terverifikasi</span> berarti ada tautan sumber publik yang dapat ditelusuri. <span class="badge badge-tunggu">menunggu verifikasi</span> berarti nama tersebut dinyatakan oleh pengelola mata kuliah — asal keterangannya dicantumkan pada kartu — tetapi tautan profil resminya belum dilampirkan. Entri berstatus menunggu verifikasi belum layak dikutip sebagai data resmi.</div>
 
   <div class="alat">
-    <input id="cari-dosen" type="search" placeholder="Cari nama, unit, atau bidang kajian…" aria-label="Cari dosen">
+    <input id="cari-dosen" type="search" placeholder="Cari nama, homebase, atau bidang kajian…" aria-label="Cari dosen">
     <select id="filter-verifikasi" aria-label="Saring berdasarkan status verifikasi">
       <option value="semua">Semua status</option>
       <option value="terverifikasi">Terverifikasi</option>

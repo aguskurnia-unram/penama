@@ -72,7 +72,7 @@ async function renderDosen() {
     const baris = data.dosen.filter((d) => {
       const cocokTeks =
         !q ||
-        [namaLengkap(d), d.unit, ...(d.bidang_kajian || []), ...(d.mata_kuliah_diampu || [])]
+        [namaLengkap(d), d.unit, d.homebase || '', ...(d.bidang_kajian || []), ...(d.mata_kuliah_diampu || [])]
           .join(' ')
           .toLowerCase()
           .includes(q);
