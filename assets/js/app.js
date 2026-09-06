@@ -1,0 +1,191 @@
+/* Penama Online — pemuat data direktori (tanpa dependensi eksternal) */
+
+const BASIS = document.documentElement.dataset.basis || '.';
+
+async function muat(nama) {
+  const res = await fetch(`${BASIS}/data/${nama}.json`, { cache: 'no-cache' });
+  if (!res.ok) throw new Error(`Gagal memuat ${nama}.json (${res.status})`);
+  return res.json();
+}
+
+const esc = (s) =>
+  String(s ?? '').replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])
+  );
+
+const lencana = (status) =>
+  status === 'terverifikasi'
+    ? '<span class="badge badge-ok">terverifikasi</span>'
+    : '<span class="badge badge-tunggu">menunggu verifikasi</span>';
+
+const namaLengkap = (d) =>
+  [d.gelar_depan, d.nama, d.gelar_belakang].filter(Boolean).join(' ').replace(' ,', ',');
+
+/* ---------- Halaman dosen ---------- */
+async function renderDosen() {
+  const host = document.getElementById('daftar-dosen');
+  if (!host) return;
+  const cari = document.getElementById('cari-dosen');
+  const filter = document.getElementById('filter-verifikasi');
+
+  let data;
+  try {
+    data = await muat('dosen');
+  } catch (e) {
+    host.innerHTML = `<div class="kosong">${esc(e.message)}</div>`;
+    return;
+  }
+
+  const info = document.getElementById('meta-dosen');
+  if (info) info.textContent = `Terakhir diperbarui ${data.meta.terakhir_diperbarui} · dikelola ${data.meta.pengelola}`;
+
+  const gambar = () => {
+    const q = (cari?.value || '').toLowerCase().trim();
+    const v = filter?.value || 'semua';
+    const baris = data.dosen.filter((d) => {
+      const cocokTeks =
+        !q ||
+        [namaLengkap(d), d.unit, ...(d.bidang_kajian || []), ...(d.mata_kuliah_diampu || [])]
+          .join(' ')
+          .toLowerCase()
+          .includes(q);
+      const cocokStatus = v === 'semua' || d.status_verifikasi === v;
+      return cocokTeks && cocokStatus;
+    });
+
+    if (!baris.length) {
+      host.innerHTML = '<div class="kosong">Tidak ada dosen yang cocok dengan penyaring saat ini.</div>';
+      return;
+    }
+
+    host.innerHTML = baris
+      .map((d) => {
+        const tautan = Object.entries(d.profil || {})
+          .filter(([, url]) => url)
+          .map(([k, url]) => `<a href="${esc(url)}" rel="noopener noreferrer" target="_blank">${esc(k.replace(/_/g, ' '))}</a>`)
+          .join(' · ');
+        const pend = (d.pendidikan || [])
+          .map((p) => `${esc(p.jenjang)} — ${esc(p.program)}, ${esc(p.institusi)}`)
+          .join('<br>');
+        return `<article class="kartu">
+          <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
+            <h3>${esc(namaLengkap(d))}</h3>${lencana(d.status_verifikasi)}
+          </div>
+          <p>${esc(d.unit)}<br>${esc(d.institusi)}</p>
+          ${d.mata_kuliah_diampu?.length ? `<p style="margin-top:10px"><strong>Mata kuliah:</strong> ${esc(d.mata_kuliah_diampu.join(', '))}</p>` : ''}
+          ${pend ? `<p style="margin-top:10px"><strong>Pendidikan:</strong><br>${pend}</p>` : ''}
+          <div style="margin-top:10px">${(d.bidang_kajian || []).map((b) => `<span class="tag">${esc(b)}</span>`).join('')}</div>
+          ${tautan ? `<p style="margin-top:12px;font-size:14px">${tautan}</p>` : ''}
+        </article>`;
+      })
+      .join('');
+  };
+
+  cari?.addEventListener('input', gambar);
+  filter?.addEventListener('change', gambar);
+  gambar();
+}
+
+/* ---------- Halaman penelitian ---------- */
+async function renderPenelitian() {
+  const host = document.getElementById('tabel-penelitian');
+  if (!host) return;
+  const cari = document.getElementById('cari-penelitian');
+  const jenis = document.getElementById('filter-jenis');
+
+  let data;
+  try {
+    data = await muat('penelitian');
+  } catch (e) {
+    host.innerHTML = `<div class="kosong">${esc(e.message)}</div>`;
+    return;
+  }
+
+  const info = document.getElementById('meta-penelitian');
+  if (info) info.textContent = `Terakhir diperbarui ${data.meta.terakhir_diperbarui} · ${data.penelitian.length} entri terdata`;
+
+  if (jenis) {
+    const jenisUnik = [...new Set(data.penelitian.map((p) => p.jenis))].sort();
+    jenis.insertAdjacentHTML('beforeend', jenisUnik.map((j) => `<option value="${esc(j)}">${esc(j)}</option>`).join(''));
+  }
+
+  const gambar = () => {
+    const q = (cari?.value || '').toLowerCase().trim();
+    const j = jenis?.value || 'semua';
+    const baris = data.penelitian.filter((p) => {
+      const cocokTeks =
+        !q || [p.judul, ...(p.penulis || []), ...(p.topik || [])].join(' ').toLowerCase().includes(q);
+      return cocokTeks && (j === 'semua' || p.jenis === j);
+    });
+
+    if (!baris.length) {
+      host.innerHTML = '<div class="kosong">Belum ada entri penelitian yang cocok.</div>';
+      return;
+    }
+
+    host.innerHTML = `<div class="tabel-bungkus"><table>
+      <thead><tr><th>Judul</th><th>Penulis</th><th>Tahun</th><th>Topik</th><th>Sumber</th></tr></thead>
+      <tbody>${baris
+        .map(
+          (p) => `<tr>
+            <td><strong>${esc(p.judul)}</strong><br>${lencana(p.status_verifikasi)}
+              ${p.relevansi_mkwk ? `<div style="margin-top:6px;color:var(--abu);font-size:14px">${esc(p.relevansi_mkwk)}</div>` : ''}</td>
+            <td>${esc((p.penulis || []).join('; '))}</td>
+            <td>${p.tahun ?? '—'}</td>
+            <td>${(p.topik || []).map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</td>
+            <td>${(p.sumber || []).map((s, i) => `<a href="${esc(s)}" target="_blank" rel="noopener noreferrer">tautan ${i + 1}</a>`).join('<br>')}</td>
+          </tr>`
+        )
+        .join('')}</tbody></table></div>`;
+  };
+
+  cari?.addEventListener('input', gambar);
+  jenis?.addEventListener('change', gambar);
+  gambar();
+
+  const wadah = document.getElementById('wadah-publikasi');
+  if (wadah && data.wadah_publikasi) {
+    wadah.innerHTML = data.wadah_publikasi
+      .map(
+        (w) => `<article class="kartu">
+          <h3>${esc(w.nama)}</h3>
+          <p>${esc(w.cakupan)}</p>
+          <p style="margin-top:10px"><strong>Pengelola:</strong> ${esc(w.pengelola)}${w.periode_terbit ? `<br><strong>Terbit:</strong> ${esc(w.periode_terbit)}` : ''}</p>
+          ${w.url ? `<p style="margin-top:10px"><a href="${esc(w.url)}" target="_blank" rel="noopener noreferrer">Kunjungi jurnal →</a></p>` : ''}
+        </article>`
+      )
+      .join('');
+  }
+}
+
+/* ---------- Halaman kurikulum ---------- */
+async function renderKurikulum() {
+  const mkwk = document.getElementById('daftar-mkwk');
+  const mkwi = document.getElementById('daftar-mkwi');
+  if (!mkwk && !mkwi) return;
+
+  let data;
+  try {
+    data = await muat('matakuliah');
+  } catch (e) {
+    if (mkwk) mkwk.innerHTML = `<div class="kosong">${esc(e.message)}</div>`;
+    return;
+  }
+
+  const kartu = (m) => `<article class="kartu">
+      <span class="kode">${esc(m.kode)}</span>
+      <h3>${esc(m.nama)}${m.fokus_situs ? ' ★' : ''}</h3>
+      <p>${esc(m.deskripsi)}</p>
+    </article>`;
+
+  if (mkwk) mkwk.innerHTML = data.mkwk.map(kartu).join('');
+  if (mkwi) mkwi.innerHTML = data.mkwi.map(kartu).join('');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderDosen();
+  renderPenelitian();
+  renderKurikulum();
+  const th = document.getElementById('tahun');
+  if (th) th.textContent = new Date().getFullYear();
+});

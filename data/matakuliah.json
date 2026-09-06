@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "judul": "Struktur Mata Kuliah Wajib Kurikulum (MKWK) dan Wajib Institusi (MKWI) Universitas Mataram",
+    "pengelola": "Pusat MKWK, LPMPP Universitas Mataram",
+    "terakhir_diperbarui": "2026-09-06",
+    "dasar": "Mata kuliah wajib kurikulum pada pendidikan tinggi sesuai ketentuan Direktorat Jenderal Pendidikan Tinggi."
+  },
+  "mkwk": [
+    {
+      "kode": "MKWK-AGAMA",
+      "nama": "Pendidikan Agama",
+      "fokus_situs": true,
+      "deskripsi": "Mata kuliah dasar umum yang mengkaji berbagai persoalan kehidupan dari perspektif ajaran agama. Untuk mahasiswa Muslim ditempuh sebagai Pendidikan Agama Islam."
+    },
+    { "kode": "MKWK-PANCASILA", "nama": "Pendidikan Pancasila", "fokus_situs": false, "deskripsi": "Penguatan nilai dasar kebangsaan dan ideologi negara." },
+    { "kode": "MKWK-BINDO", "nama": "Bahasa Indonesia", "fokus_situs": false, "deskripsi": "Literasi akademik dan keterampilan berbahasa Indonesia ilmiah." },
+    { "kode": "MKWK-PKN", "nama": "Pendidikan Kewarganegaraan", "fokus_situs": false, "deskripsi": "Wawasan kebangsaan, kewargaan, dan demokrasi." }
+  ],
+  "mkwi": [
+    { "kode": "MKWI-LITDIG", "nama": "Literasi Digital Abad 21", "deskripsi": "Kecakapan digital dan etika bermedia." },
+    { "kode": "MKWI-EKOPULAU", "nama": "Ekosistem Kepulauan", "deskripsi": "Kekhasan Unram: kajian ekosistem kepulauan Nusa Tenggara." },
+    { "kode": "MKWI-BING", "nama": "Bahasa Inggris", "deskripsi": "Kemampuan komunikasi akademik berbahasa Inggris." }
+  ]
+}

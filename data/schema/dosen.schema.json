@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Direktori Dosen Penama",
+  "type": "object",
+  "required": ["meta", "dosen"],
+  "properties": {
+    "meta": { "type": "object", "required": ["judul", "pengelola", "terakhir_diperbarui"] },
+    "dosen": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "nama", "status_verifikasi", "institusi", "unit", "sumber"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "nama": { "type": "string", "minLength": 2 },
+          "gelar_depan": { "type": "string" },
+          "gelar_belakang": { "type": "string" },
+          "status_verifikasi": { "enum": ["terverifikasi", "menunggu_verifikasi"] },
+          "institusi": { "type": "string" },
+          "unit": { "type": "string" },
+          "mata_kuliah_diampu": { "type": "array", "items": { "type": "string" } },
+          "bidang_kajian": { "type": "array", "items": { "type": "string" } },
+          "pendidikan": { "type": "array" },
+          "profil": { "type": "object" },
+          "sumber": { "type": "array", "items": { "type": "string", "format": "uri" } }
+        }
+      }
+    }
+  }
+}

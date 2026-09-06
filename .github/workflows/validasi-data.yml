@@ -1,0 +1,26 @@
+name: Validasi data & bangun halaman
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  periksa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Periksa berkas data
+        run: node scripts/validate-data.mjs
+      - name: Pastikan halaman sinkron dengan generator
+        run: |
+          node scripts/build-pages.mjs
+          if ! git diff --quiet -- '*.html'; then
+            echo "Berkas HTML tidak sinkron dengan scripts/build-pages.mjs."
+            echo "Jalankan 'node scripts/build-pages.mjs' lalu commit hasilnya."
+            git --no-pager diff --stat -- '*.html'
+            exit 1
+          fi

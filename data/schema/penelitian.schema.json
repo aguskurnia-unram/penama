@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Basis Data Penelitian Penama",
+  "type": "object",
+  "required": ["meta", "penelitian"],
+  "properties": {
+    "meta": { "type": "object", "required": ["judul", "pengelola", "terakhir_diperbarui"] },
+    "penelitian": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "judul", "penulis", "jenis", "status_verifikasi", "sumber"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "judul": { "type": "string", "minLength": 5 },
+          "penulis": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "tahun": { "type": ["integer", "null"] },
+          "jenis": { "enum": ["artikel", "prosiding", "buku", "bab-buku", "laporan", "pengabdian", "hki"] },
+          "topik": { "type": "array", "items": { "type": "string" } },
+          "relevansi_mkwk": { "type": "string" },
+          "status_verifikasi": { "enum": ["terverifikasi", "menunggu_verifikasi"] },
+          "sumber": { "type": "array", "items": { "type": "string", "format": "uri" }, "minItems": 1 }
+        }
+      }
+    },
+    "wadah_publikasi": { "type": "array" }
+  }
+}

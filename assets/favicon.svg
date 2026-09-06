@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Penama Online">
+  <rect width="64" height="64" rx="14" fill="#0f5132"/>
+  <path d="M32 12l3.6 7.6 8.4 1.2-6 5.9 1.4 8.3L32 31l-7.4 4 1.4-8.3-6-5.9 8.4-1.2z" fill="#b8860b"/>
+  <text x="32" y="53" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">PN</text>
+</svg>

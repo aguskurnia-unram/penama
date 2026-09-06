@@ -1,0 +1,45 @@
+{
+  "$schema": "./schema/dosen.schema.json",
+  "meta": {
+    "judul": "Direktori Dosen Pendidikan Agama Islam Universitas Mataram",
+    "pengelola": "Pusat MKWK, LPMPP Universitas Mataram",
+    "terakhir_diperbarui": "2026-09-06",
+    "catatan_verifikasi": "Hanya entri dengan status_verifikasi = \"terverifikasi\" yang memiliki sumber publik yang dapat ditelusuri pada kolom sumber. Entri dengan status \"menunggu_verifikasi\" adalah kerangka data yang WAJIB dilengkapi oleh Pusat MKWK sebelum dipublikasikan. Nomor induk pegawai (NIP/NIDN) tidak dicantumkan sebelum ada persetujuan tertulis dari yang bersangkutan dan Pusat MKWK.",
+    "kebijakan_data_pribadi": "Direktori ini hanya memuat data profesional yang telah dipublikasikan secara terbuka oleh dosen yang bersangkutan (profil Scholar/SINTA/ResearchGate, halaman resmi unit). Permintaan koreksi atau penghapusan dapat diajukan melalui Pusat MKWK LPMPP Unram."
+  },
+  "dosen": [
+    {
+      "id": "agus-kurnia",
+      "nama": "Agus Kurnia",
+      "gelar_depan": "",
+      "gelar_belakang": "",
+      "status_verifikasi": "terverifikasi",
+      "institusi": "Universitas Mataram",
+      "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "mata_kuliah_diampu": ["Pendidikan Agama Islam"],
+      "bidang_kajian": [
+        "Islamic Education",
+        "Halal Industry",
+        "Islamic Studies",
+        "General Education",
+        "Technology Adoption"
+      ],
+      "pendidikan": [
+        {
+          "jenjang": "Doktoral (sedang ditempuh)",
+          "program": "Perekonomian Islam dan Industri Halal",
+          "institusi": "Universitas Gadjah Mada"
+        }
+      ],
+      "profil": {
+        "google_scholar": "https://scholar.google.co.id/citations?hl=id&user=O-mJypoAAAAJ",
+        "researchgate": "https://www.researchgate.net/profile/Agus-Kurnia",
+        "sinta": null
+      },
+      "sumber": [
+        "https://scholar.google.co.id/citations?hl=id&user=O-mJypoAAAAJ",
+        "https://www.researchgate.net/profile/Agus-Kurnia"
+      ]
+    }
+  ]
+}
