@@ -9,24 +9,32 @@ Dua repositori, satu domain, satu kontrak data.
 
 ## 1. Pembagian domain
 
-Domain `penama.online` dirutekan ke Worker `aksara` (`pai.penama.online`,
-`penama.online`, `aksara.penama.online`), jadi repositori ini tidak boleh
-memakai domain itu untuk dirinya sendiri.
+`penama.online` adalah **situs utama portal ini**. Worker `aksara` menyajikannya
+di akar domain, dan aplikasi pembelajaran menjadi salah satu direktorinya.
 
-**Cara yang dipakai sekarang: Worker mem-proxy portal di `penama.online/info/`.**
-Rutenya ada di `worker/penamaPortal.ts` (`portalPages`, dipasang di `/info`)
-dan membaca berkas repositori ini apa adanya dari branch `main`.
+| Alamat | Isi | Ditangani |
+|---|---|---|
+| `penama.online/` | portal Penama Online | proxy ke repositori ini |
+| `penama.online/pai/` | aplikasi pembelajaran AKSARA PAI | bundel aset Worker |
+| `pai.penama.online/`, `aksara.penama.online/` | aplikasi di akar subdomain | bundel aset Worker |
+| `penama.online/api/*` | API aplikasi dan rute data portal | Worker |
 
-Proxy, bukan salinan — itu titik pentingnya:
+Pembagiannya berdasarkan nama host di `worker/situs.ts`, bukan berkas terpisah:
+satu Worker dan satu bundel aset melayani keduanya. Host yang menyajikan
+aplikasi di akar dapat diubah lewat variabel `APP_HOSTS`.
+
+Portal diproxy, bukan disalin — itu titik pentingnya:
 
 - repositori ini tetap satu-satunya sumber kebenaran, tidak ada isi yang digandakan;
 - suntingan portal langsung tayang tanpa men-deploy ulang AKSARA;
-- tidak ada yang perlu disediakan lebih dulu: tanpa GitHub Pages, tanpa data DNS,
-  tanpa paket berbayar.
+- tidak ada yang perlu disediakan lebih dulu: tanpa GitHub Pages, tanpa data DNS.
 
-Pindah tempat cukup dengan mengganti `PENAMA_PORTAL_URL` — GitHub Pages di
-subdomain, Cloudflare Pages, atau kembali ke repositori langsung — tanpa
-menyentuh kode. Tabel langkahnya ada di README repositori ini.
+Pindah tempat cukup dengan mengganti `PENAMA_PORTAL_URL`, tanpa menyentuh kode.
+Tabel langkahnya ada di README repositori ini.
+
+> **Catatan penamaan.** Berkas pendukung portal berada di `aset/`, sementara
+> `/assets/` pada akar domain adalah milik bundel aplikasi. Menyamakan keduanya
+> akan membuat portal tampil tanpa gaya dan tanpa data.
 
 ## 2. Kontrak data
 
@@ -83,7 +91,8 @@ Sudah terpasang di sisi AKSARA (`worker/penamaPortal.ts`, dipasang di
 | `GET /api/portal/dosen` | direktori dosen | hanya entri `terverifikasi`; `?semua=1` menampilkan semuanya |
 | `GET /api/portal/penelitian` | penelitian + wadah publikasi | penyaringan sama |
 | `GET /api/portal/matakuliah` | struktur MKWK & MKWI | diteruskan apa adanya |
-| `GET /info/*` | halaman portal | proxy berkas repositori ini, cache 5 menit |
+| `GET /api/portal/jurnal` | direktori jurnal SILA & PANCA | penyaringan sama |
+| `GET /` dan `/info/*` | halaman portal | proxy berkas repositori ini, cache 5 menit |
 
 Sifatnya publik tanpa autentikasi — isinya memang informasi publik. Pengambilan
 dilakukan di sisi Worker, bukan di browser, sehingga portal tidak perlu header

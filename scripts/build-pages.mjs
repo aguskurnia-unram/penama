@@ -4,6 +4,9 @@ import { writeFileSync } from 'node:fs';
 
 const SITUS = 'Penama Online';
 const DESK_UNIT = 'Pusat MKWK, LPMPP Universitas Mataram';
+// Aplikasi pembelajaran adalah direktori dari situs ini. Alamatnya ditulis
+// penuh agar tetap benar walau portal disajikan dari host lain.
+const URL_APLIKASI = 'https://penama.online/pai/';
 
 const NAV = [
   ['index.html', 'Beranda'],
@@ -45,6 +48,7 @@ const kepala = (aktif, judul, deskripsi) => `<!doctype html>
   </a>
   <nav class="utama" aria-label="Navigasi utama">
     ${NAV.map(([h, t]) => `<a href="./${h}"${h === aktif ? ' aria-current="page"' : ''}>${t}</a>`).join('\n    ')}
+    <a href="${URL_APLIKASI}" class="btn btn-utama" style="padding:8px 14px;font-size:14px">Masuk Aplikasi</a>
   </nav>
 </div></header>
 <main>`;
@@ -63,6 +67,7 @@ const kaki = `</main>
     <div>
       <h4>Tautan Resmi</h4>
       <ul>
+        <li><a href="${URL_APLIKASI}">Aplikasi Pembelajaran PAI</a></li>
         <li><a href="https://unram.ac.id" rel="noopener" target="_blank">Universitas Mataram</a></li>
         <li><a href="https://lpmpp.unram.ac.id" rel="noopener" target="_blank">LPMPP Unram</a></li>
         <li><a href="https://mku.unram.ac.id" rel="noopener" target="_blank">Unit MKU Unram</a></li>
@@ -97,6 +102,7 @@ halaman['index.html'] = {
   <div class="tombol-baris">
     <a class="btn btn-utama" href="./kurikulum.html">Lihat Kurikulum MKWK</a>
     <a class="btn btn-garis" href="./dosen.html">Direktori Dosen</a>
+    <a class="btn btn-garis" href="${URL_APLIKASI}">Masuk Aplikasi Pembelajaran</a>
   </div>
 </div></section>
 
@@ -169,8 +175,8 @@ halaman['pembelajaran.html'] = {
   <h3 style="margin-top:42px">Digitalisasi kelas</h3>
   <p class="sub">Pemanfaatan teknologi dalam pembelajaran PAI di Universitas Mataram telah menjadi objek kajian tersendiri; portal ini menjadi lapisan informasi publiknya, sementara pelaksanaan kelas berjalan pada aplikasi Penama (AKSARA).</p>
   <div class="grid g2">
-    <article class="kartu"><h3>Aplikasi Penama (AKSARA)</h3><p>Aplikasi pembelajaran untuk dosen, mahasiswa, dan admin: dokumen mata kuliah, agenda, portofolio, dan audit kelas.</p></article>
-    <article class="kartu"><h3>Portal Penama Online</h3><p>Lapisan informasi publik: kurikulum, direktori dosen, dan basis data penelitian yang terbuka untuk ditelusuri siapa pun.</p></article>
+    <article class="kartu"><h3>Aplikasi Pembelajaran (AKSARA PAI)</h3><p>Direktori <code>penama.online/pai/</code> — ruang kelas digital untuk dosen, mahasiswa, dan admin: dokumen mata kuliah, agenda, portofolio, dan audit kelas.</p></article>
+    <article class="kartu"><h3>Portal Penama Online</h3><p>Situs utama di <code>penama.online</code>: kurikulum, direktori dosen, jurnal, dan basis data penelitian yang terbuka untuk ditelusuri siapa pun.</p></article>
   </div>
 </div></section>`,
 };
