@@ -115,10 +115,7 @@ halaman['index.html'] = {
   <p class="sub">Pendidikan Agama adalah satu dari empat mata kuliah wajib kurikulum; Universitas Mataram melengkapinya dengan mata kuliah wajib institusi berciri kepulauan.</p>
   <div class="grid g2" id="daftar-mkwk"></div>
 </div></section>
-
-<section><div class="wrap">
-  <div class="catatan"><strong>Tentang keandalan data.</strong> Portal ini hanya menayangkan entri yang memiliki sumber publik yang dapat ditelusuri. Entri yang belum diverifikasi ditandai secara eksplisit dan tidak boleh dikutip sebagai data resmi. Usulan penambahan dan koreksi diajukan melalui repositori GitHub atau Pusat MKWK LPMPP Unram.</div>
-</div></section>`,
+`,
 };
 
 halaman['kurikulum.html'] = {
@@ -132,7 +129,7 @@ halaman['kurikulum.html'] = {
   <div class="grid g2" id="daftar-mkwk" style="margin-top:14px"></div>
   <h3 style="margin-top:38px">Mata Kuliah Wajib Institusi (MKWI)</h3>
   <div class="grid g3" id="daftar-mkwi" style="margin-top:14px"></div>
-  <div class="catatan" style="margin-top:32px"><strong>Catatan.</strong> Bobot sks, kode resmi, dan sebaran semester mengikuti dokumen kurikulum yang ditetapkan universitas. Kolom <code>kode</code> pada berkas data adalah pengenal internal portal, bukan kode mata kuliah resmi.</div>
+  <div class="catatan" style="margin-top:32px"><strong>Catatan.</strong> Bobot sks, kode resmi, dan sebaran semester mengikuti dokumen kurikulum yang ditetapkan universitas.</div>
 </div></section>`,
 };
 
@@ -189,19 +186,6 @@ halaman['materi.html'] = {
   <p class="sub">Dosen berikut belum mendaftarkan portal mandiri. Tempatnya sudah tersedia dan tinggal diisi bila kelak dibangun.</p>
   <div id="materi-belum"></div>
 
-  <h3 style="margin-top:46px">Mendaftarkan portal</h3>
-  <p class="sub">Portal boleh berupa apa saja yang dapat diakses lewat tautan — subdomain sendiri, situs statis, ruang kelas daring, atau kanal video. Yang diperlukan hanya alamatnya.</p>
-  <div class="tabel-bungkus">
-    <table>
-      <thead><tr><th>Bidang</th><th>Isi</th></tr></thead>
-      <tbody>
-        <tr><td><code>url</code></td><td>Alamat portal, wajib. Contoh: <code>https://materi.penama.online</code></td></tr>
-        <tr><td><code>nama</code></td><td>Nama portal sebagaimana ingin ditampilkan</td></tr>
-        <tr><td><code>keterangan</code></td><td>Satu kalimat tentang isinya</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="sub" style="margin-top:16px">Ketiganya diisi pada bidang <code>portal_materi</code> milik dosen bersangkutan di <code>data/dosen.json</code>. Selama masih <code>null</code>, kartu dosen menampilkan keterangan bahwa portalnya belum tersedia.</p>
 </div></section>`,
 };
 
@@ -212,8 +196,6 @@ halaman['dosen.html'] = {
 <section><div class="wrap">
   <h2>Direktori Dosen Pendidikan Agama Islam</h2>
   <p class="sub" id="meta-dosen">Memuat data…</p>
-
-  <div class="catatan" style="margin-bottom:26px"><strong>Kebijakan data.</strong> Direktori hanya memuat data profesional; nomor induk pegawai (NIP/NIDN), kontak pribadi, dan data pribadi lain tidak ditayangkan tanpa persetujuan tertulis.<br><br>Setiap entri diberi status yang kasatmata. <span class="badge badge-ok">terverifikasi</span> berarti ada tautan sumber publik yang dapat ditelusuri. <span class="badge badge-tunggu">menunggu verifikasi</span> berarti nama tersebut dinyatakan oleh pengelola mata kuliah — asal keterangannya dicantumkan pada kartu — tetapi tautan profil resminya belum dilampirkan. Entri berstatus menunggu verifikasi belum layak dikutip sebagai data resmi.</div>
 
   <div class="alat">
     <input id="cari-dosen" type="search" placeholder="Cari nama, homebase, atau bidang kajian…" aria-label="Cari dosen">
@@ -226,8 +208,6 @@ halaman['dosen.html'] = {
 
   <div class="grid g2" id="daftar-dosen"></div>
 
-  <h3 style="margin-top:42px">Menambahkan atau mengoreksi entri</h3>
-  <p class="sub">Kirim pengajuan perubahan pada berkas <code>data/dosen.json</code> di repositori GitHub, sertakan minimal satu tautan sumber publik (profil SINTA, Google Scholar, ResearchGate, atau halaman resmi unit). Pengajuan tanpa sumber akan ditolak otomatis oleh pemeriksaan data.</p>
 </div></section>`,
 };
 
@@ -252,7 +232,6 @@ halaman['penelitian.html'] = {
   <p class="sub">Jurnal yang dikelola Pusat MKWK Universitas Mataram beserta fokus dan cakupannya kini berdiri sebagai direktori tersendiri.</p>
   <p><a class="btn btn-utama" href="./jurnal.html">Buka Direktori Jurnal →</a></p>
 
-  <div class="catatan" style="margin-top:34px"><strong>Basis data ini sengaja dimulai kecil.</strong> Hanya entri dengan tautan sumber yang dapat dibuka umum yang ditayangkan, sehingga daftar bertambah seiring proses verifikasi oleh Pusat MKWK, bukan melalui pengisian massal yang tidak terperiksa.</div>
 </div></section>`,
 };
 
@@ -281,7 +260,6 @@ halaman['jurnal.html'] = {
     </table>
   </div>
 
-  <div class="catatan" style="margin-top:32px"><strong>ISSN dan peringkat SINTA belum ditayangkan.</strong> Keduanya dibiarkan kosong sampai diverifikasi langsung dari laman resmi masing-masing jurnal, sesuai aturan portal ini: tidak menayangkan data yang belum ditelusuri. Pusat MKWK dapat melengkapinya di <code>data/jurnal.json</code>, dan pemeriksaan otomatis akan menolak format ISSN yang keliru.</div>
 </div></section>`,
 };
 
@@ -306,14 +284,13 @@ halaman['tentang.html'] = {
         <tr><td>Dapat ditelusuri</td><td>Setiap entri dosen dan penelitian wajib menyertakan tautan sumber publik.</td></tr>
         <tr><td>Ditandai statusnya</td><td>Entri bertanda <em>terverifikasi</em> atau <em>menunggu verifikasi</em>; keduanya dibedakan secara kasatmata.</td></tr>
         <tr><td>Minim data pribadi</td><td>NIP/NIDN, kontak pribadi, dan alamat tidak ditayangkan tanpa persetujuan tertulis.</td></tr>
-        <tr><td>Dapat dikoreksi</td><td>Koreksi dan penghapusan dapat diajukan melalui repositori GitHub atau langsung ke Pusat MKWK.</td></tr>
-        <tr><td>Terbuka</td><td>Seluruh data tersedia sebagai berkas JSON yang dapat dibaca sistem lain.</td></tr>
+        <tr><td>Dapat dikoreksi</td><td>Koreksi dan permintaan penghapusan dapat diajukan kepada Pusat MKWK.</td></tr>
       </tbody>
     </table>
   </div>
 
-  <h3 style="margin-top:42px">Hubungan dengan AKSARA</h3>
-  <p class="sub">Repositori <code>penama-online</code> memuat lapisan informasi publik, sedangkan repositori <code>AKSARA</code> memuat aplikasi pembelajaran Penama (React + Cloudflare Worker) yang melayani dosen, mahasiswa, dan admin. Keduanya berbagi domain <code>penama.online</code> dan berbagi kontrak data JSON di direktori <code>data/</code>, sehingga aplikasi dapat menarik direktori dosen dan basis data penelitian tanpa penggandaan isi.</p>
+  <h3 style="margin-top:42px">Portal dan ruang kelas digital</h3>
+  <p class="sub">Portal ini menyajikan informasi yang terbuka bagi siapa pun. Ruang kelas digitalnya — tempat dosen dan mahasiswa mengelola dokumen mata kuliah, agenda, dan portofolio — berada di direktori <a href="${URL_APLIKASI}">Aplikasi Pembelajaran</a> dan memerlukan akun. Data mahasiswa tidak pernah masuk ke halaman publik ini.</p>
 
   <div class="catatan" style="margin-top:26px"><strong>Penyangkalan.</strong> Isi portal bersifat informatif. Dokumen akademik resmi (RPS, kontrak kuliah, transkrip) tetap mengacu pada dokumen yang disahkan Universitas Mataram.</div>
 </div></section>`,

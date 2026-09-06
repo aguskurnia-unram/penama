@@ -2,6 +2,33 @@
 
 Terima kasih telah membantu merawat portal Penama Online.
 
+> **Keterangan pengembangan tidak ditayangkan di situs.** Halaman publik hanya
+> memuat isi yang berguna bagi pembacanya. Segala petunjuk teknis — cara
+> menambah entri, arti bidang data, aturan verifikasi, nama berkas — tinggal di
+> berkas ini dan di README, bukan di halaman web. Bila menambah fitur, jangan
+> menuliskan petunjuk pengisiannya pada halaman; tuliskan di sini.
+
+## Arti status verifikasi
+
+Status ditampilkan di situs sebagai lencana pada kartu, tanpa keterangan
+tambahan. Artinya:
+
+| Status | Arti |
+|---|---|
+| `terverifikasi` | Ada minimal satu tautan sumber publik yang dapat ditelusuri pada kolom `sumber`. |
+| `menunggu_verifikasi` | Nama dinyatakan pengelola mata kuliah — dicatat pada kolom `atestasi` — tetapi tautan profil resminya belum dilampirkan. Belum layak dikutip sebagai data resmi. |
+
+Yang tidak pernah ditayangkan tanpa persetujuan tertulis: NIP/NIDN, kontak
+pribadi, alamat, dan foto seseorang.
+
+Basis data ini sengaja tumbuh perlahan: daftar bertambah seiring verifikasi,
+bukan lewat pengisian massal yang tidak terperiksa. ISSN jurnal dan peringkat
+SINTA dibiarkan `null` sampai diverifikasi dari laman resmi jurnalnya —
+pemeriksaan otomatis menolak format ISSN yang keliru.
+
+Kolom `kode` pada `data/matakuliah.json` adalah pengenal internal portal, bukan
+kode mata kuliah resmi universitas.
+
 ## Menambah atau mengoreksi data
 
 Seluruh isi direktori dosen, penelitian, dan mata kuliah berada di berkas JSON
