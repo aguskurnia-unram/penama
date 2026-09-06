@@ -1,8 +1,13 @@
 name: Terbitkan ke GitHub Pages
 
+# Jalur penerbitan cadangan, sengaja hanya manual.
+#
+# Portal utama disajikan Worker `aksara` di https://penama.online/info/ dengan
+# cara mem-proxy repositori ini, sehingga tidak butuh Pages maupun data DNS.
+# Alur ini disimpan agar portal tetap bisa dipindah ke GitHub Pages kapan pun:
+# aktifkan Pages di Settings, jalankan alur ini, lalu arahkan variabel
+# PENAMA_PORTAL_URL di AKSARA ke alamat Pages tersebut.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

@@ -9,22 +9,24 @@ Dua repositori, satu domain, satu kontrak data.
 
 ## 1. Pembagian domain
 
-Domain `penama.online` saat ini sudah dirutekan ke Worker `aksara`
-(`pai.penama.online`, `penama.online`, `aksara.penama.online`). Karena itu
-**jangan** menambahkan berkas `CNAME` berisi `penama.online` di repositori ini —
-itu akan berbenturan dengan rute Worker yang sudah berjalan.
+Domain `penama.online` dirutekan ke Worker `aksara` (`pai.penama.online`,
+`penama.online`, `aksara.penama.online`), jadi repositori ini tidak boleh
+memakai domain itu untuk dirinya sendiri.
 
-Tiga pilihan penempatan, dari yang paling ringan:
+**Cara yang dipakai sekarang: Worker mem-proxy portal di `penama.online/info/`.**
+Rutenya ada di `worker/penamaPortal.ts` (`portalPages`, dipasang di `/info`)
+dan membaca berkas repositori ini apa adanya dari branch `main`.
 
-1. **Subdomain terpisah (disarankan).** Terbitkan portal ke GitHub Pages,
-   arahkan `info.penama.online` (atau `mkwk.penama.online`) ke Pages melalui
-   CNAME DNS, lalu tambahkan berkas `CNAME` berisi subdomain tersebut.
-   Aplikasi tetap utuh di `penama.online`.
-2. **Sub-path pada Worker.** Salin keluaran statis repositori ini ke direktori
-   aset Worker AKSARA saat proses build, lalu sajikan di `penama.online/info/*`.
-   Satu domain, tetapi build AKSARA menjadi bergantung pada repositori ini.
-3. **Cloudflare Pages tersendiri** dengan rute khusus, jika di kemudian hari
-   portal berkembang menjadi situs dinamis.
+Proxy, bukan salinan — itu titik pentingnya:
+
+- repositori ini tetap satu-satunya sumber kebenaran, tidak ada isi yang digandakan;
+- suntingan portal langsung tayang tanpa men-deploy ulang AKSARA;
+- tidak ada yang perlu disediakan lebih dulu: tanpa GitHub Pages, tanpa data DNS,
+  tanpa paket berbayar.
+
+Pindah tempat cukup dengan mengganti `PENAMA_PORTAL_URL` — GitHub Pages di
+subdomain, Cloudflare Pages, atau kembali ke repositori langsung — tanpa
+menyentuh kode. Tabel langkahnya ada di README repositori ini.
 
 ## 2. Kontrak data
 
@@ -58,9 +60,8 @@ export async function ambilDosenAgama() {
 }
 ```
 
-Karena portal statis, tambahkan header CORS pada penyajian jika AKSARA
-mengambil data dari browser, atau lakukan pengambilan di sisi Worker (opsi di
-atas) sehingga CORS tidak diperlukan sama sekali.
+Pengambilan dilakukan di sisi Worker, sehingga portal tidak perlu header CORS
+sama sekali.
 
 ## 3. Arah pengembangan lanjutan
 
@@ -82,6 +83,7 @@ Sudah terpasang di sisi AKSARA (`worker/penamaPortal.ts`, dipasang di
 | `GET /api/portal/dosen` | direktori dosen | hanya entri `terverifikasi`; `?semua=1` menampilkan semuanya |
 | `GET /api/portal/penelitian` | penelitian + wadah publikasi | penyaringan sama |
 | `GET /api/portal/matakuliah` | struktur MKWK & MKWI | diteruskan apa adanya |
+| `GET /info/*` | halaman portal | proxy berkas repositori ini, cache 5 menit |
 
 Sifatnya publik tanpa autentikasi — isinya memang informasi publik. Pengambilan
 dilakukan di sisi Worker, bukan di browser, sehingga portal tidak perlu header
@@ -91,6 +93,7 @@ Indonesia yang bisa langsung ditampilkan di antarmuka — kegagalan portal tidak
 pernah menjatuhkan halaman AKSARA.
 
 Alamat portal diatur lewat variabel `PENAMA_PORTAL_URL` di `wrangler.jsonc`
-(bawaan `https://info.penama.online`); untuk pengembangan lokal, timpa di
-`.dev.vars`, misalnya `PENAMA_PORTAL_URL="http://localhost:8099"` sambil
-menjalankan `python3 -m http.server 8099` di repositori ini.
+(bawaan `https://raw.githubusercontent.com/aguskurnia-unram/penama/main`); untuk
+pengembangan lokal, timpa di `.dev.vars`, misalnya
+`PENAMA_PORTAL_URL="http://localhost:8099"` sambil menjalankan
+`python3 -m http.server 8099` di repositori ini.

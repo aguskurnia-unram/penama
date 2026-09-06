@@ -69,35 +69,30 @@ sunting generatornya, bukan HTML-nya. CI memverifikasi keduanya tetap sinkron.
 
 ## Penerbitan
 
-Alur kerja [`.github/workflows/pages.yml`](.github/workflows/pages.yml)
-menerbitkan situs ke GitHub Pages pada setiap push ke `main`, setelah
-pemeriksaan data lolos.
+Portal disajikan oleh Cloudflare Worker `aksara` (repositori AKSARA) di
+**<https://penama.online/info/>**. Worker mem-proxy repositori ini alih-alih
+menyalin isinya, sehingga:
 
-**Aktivasi pertama harus dilakukan manual** di **Settings → Pages → Source:
-GitHub Actions**. Langkah `actions/configure-pages` sudah memakai
-`enablement: true`, tetapi `GITHUB_TOKEN` milik Actions tidak berwenang membuat
-situs Pages pada repositori milik perorangan — API menjawab *"Resource not
-accessible by integration"*. Setelah situsnya ada, langkah itu menemukannya dan
-seluruh alur berjalan otomatis pada setiap push berikutnya.
+- tidak perlu GitHub Pages dan tidak perlu data DNS tersendiri;
+- **suntingan di sini langsung tayang** setelah di-merge ke `main`, tanpa perlu
+  men-deploy ulang AKSARA (cache halaman 5 menit, data JSON 1 jam).
 
-**Repositori ini masih berstatus privat.** GitHub Pages pada repositori privat
-hanya tersedia untuk paket berbayar (GitHub Pro/Team/Enterprise). Ada tiga jalan:
-jadikan repositori publik (portal ini memang berisi informasi publik, tanpa data
-pribadi), gunakan paket berbayar, atau terbitkan lewat Cloudflare Pages / Worker
-`aksara` seperti dijelaskan di [`docs/integrasi-aksara.md`](docs/integrasi-aksara.md).
+Asal portal ditentukan variabel `PENAMA_PORTAL_URL` di `wrangler.jsonc` milik
+AKSARA, bawaannya membaca branch `main` repositori ini lewat
+`raw.githubusercontent.com`.
 
-**Catatan domain.** `penama.online` sudah dirutekan ke Cloudflare Worker
-`aksara` milik repositori AKSARA, sehingga portal ini memakai subdomain
-terpisah: berkas [`CNAME`](CNAME) berisi `info.penama.online`. Agar aktif,
-tambahkan satu data DNS di Cloudflare:
+### Memindahkan portal di kemudian hari
 
-| Tipe | Nama | Tujuan | Proxy |
-|---|---|---|---|
-| CNAME | `info` | `aguskurnia-unram.github.io` | DNS only (awan abu-abu) |
+Cukup satu variabel, tanpa mengubah kode:
 
-Proxy Cloudflare harus dimatikan untuk data ini agar GitHub dapat menerbitkan
-sertifikat TLS-nya. Alternatif tanpa GitHub Pages dijelaskan di
-[`docs/integrasi-aksara.md`](docs/integrasi-aksara.md).
+| Tujuan | Langkah |
+|---|---|
+| GitHub Pages di `info.penama.online` | Aktifkan Settings → Pages → Source: GitHub Actions, jalankan alur **Terbitkan ke GitHub Pages** (kini manual saja), buat CNAME DNS `info` → `aguskurnia-unram.github.io` (proxy mati), lalu set `PENAMA_PORTAL_URL` ke `https://info.penama.online` |
+| Cloudflare Pages | Hubungkan repositori ini ke Cloudflare Pages, lalu set `PENAMA_PORTAL_URL` ke alamat `*.pages.dev`-nya |
+| Kembali ke repositori langsung | Kosongkan `PENAMA_PORTAL_URL` agar kembali ke bawaan |
+
+Alur **Validasi data & bangun halaman** tetap berjalan pada setiap push dan
+pull request, apa pun cara penerbitannya.
 
 ## Kaitan dengan AKSARA
 
