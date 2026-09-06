@@ -33,23 +33,5 @@
         "https://www.researchgate.net/profile/Agus-Kurnia"
       ]
     }
-  ],
-  "wadah_publikasi": [
-    {
-      "nama": "SILA: Scientific Journal of Interdisciplinary Liberal Arts",
-      "pengelola": "Pusat MKWK di bawah koordinasi LPMPP Universitas Mataram",
-      "cakupan": "Kajian kritis dan integratif atas MKWK (Pendidikan Agama, Pendidikan Pancasila, Bahasa Indonesia, Pendidikan Kewarganegaraan) serta MKWI (Literasi Digital Abad 21, Ekosistem Kepulauan, Bahasa Inggris)",
-      "periode_terbit": "Dua kali setahun (Mei dan November)",
-      "url": "https://jurnal.unram.ac.id/index.php/sila",
-      "status_verifikasi": "terverifikasi"
-    },
-    {
-      "nama": "PANCA: Jurnal Pengabdian dan Aksi Nyata Cendekiawan Akademik",
-      "pengelola": "Universitas Mataram",
-      "cakupan": "Pengabdian kepada masyarakat dan aksi nyata akademik, termasuk luaran MKWK",
-      "periode_terbit": null,
-      "url": "https://jurnal.unram.ac.id/index.php/panca",
-      "status_verifikasi": "terverifikasi"
-    }
   ]
 }

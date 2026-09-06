@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Direktori Jurnal Penama",
+  "type": "object",
+  "required": ["meta", "jurnal"],
+  "properties": {
+    "meta": { "type": "object", "required": ["judul", "pengelola", "terakhir_diperbarui"] },
+    "jurnal": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "singkatan", "nama", "pengelola", "fokus", "url", "status_verifikasi", "sumber"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "singkatan": { "type": "string" },
+          "nama": { "type": "string", "minLength": 5 },
+          "pengelola": { "type": "string" },
+          "penerbit": { "type": "string" },
+          "fokus": { "type": "string" },
+          "cakupan": { "type": "array", "items": { "type": "string" } },
+          "relevansi_pai": { "type": "string" },
+          "jenis_naskah": { "type": "array", "items": { "type": "string" } },
+          "periode_terbit": { "type": ["string", "null"] },
+          "bahasa": { "type": "array", "items": { "type": "string" } },
+          "issn_cetak": { "type": ["string", "null"] },
+          "issn_elektronik": { "type": ["string", "null"] },
+          "akreditasi_sinta": { "type": ["string", "null"] },
+          "url": { "type": "string", "format": "uri" },
+          "url_alternatif": { "type": ["string", "null"], "format": "uri" },
+          "status_verifikasi": { "enum": ["terverifikasi", "menunggu_verifikasi"] },
+          "sumber": { "type": "array", "items": { "type": "string", "format": "uri" }, "minItems": 1 }
+        }
+      }
+    }
+  }
+}

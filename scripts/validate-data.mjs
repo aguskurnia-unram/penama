@@ -48,11 +48,33 @@ for (const p of riset.penelitian) {
   for (const s of p.sumber || []) if (!urlSah(s)) salah(`penelitian ${label}: sumber bukan URL sah — ${s}`);
   if (p.tahun !== null && !Number.isInteger(p.tahun)) salah(`penelitian ${label}: tahun harus bilangan bulat atau null`);
 }
-for (const w of riset.wadah_publikasi || []) {
-  if (!w.nama) salah('wadah_publikasi: nama wajib diisi');
-  if (w.url && !urlSah(w.url)) salah(`wadah_publikasi ${w.nama}: url tidak sah`);
+benar(`penelitian.json: ${riset.penelitian.length} entri diperiksa`);
+
+/* --- jurnal.json --- */
+const jurnal = baca('data/jurnal.json');
+if (!jurnal.meta?.terakhir_diperbarui) salah('jurnal.json: meta.terakhir_diperbarui wajib diisi');
+const idJurnal = new Set();
+// ISSN ditulis persis seperti pada laman jurnal: 8 karakter dengan tanda hubung,
+// digit terakhir boleh X. Nilai null berarti belum diverifikasi — itu sah.
+const ISSN = /^\d{4}-\d{3}[\dX]$/;
+for (const j of jurnal.jurnal) {
+  const label = j.id || j.nama || '(tanpa id)';
+  if (!/^[a-z0-9-]+$/.test(j.id || '')) salah(`jurnal ${label}: id harus huruf kecil, angka, dan tanda hubung`);
+  if (idJurnal.has(j.id)) salah(`jurnal ${label}: id ganda`);
+  idJurnal.add(j.id);
+  for (const wajib of ['singkatan', 'nama', 'pengelola', 'fokus']) {
+    if (!j[wajib]) salah(`jurnal ${label}: ${wajib} wajib diisi`);
+  }
+  if (!STATUS.includes(j.status_verifikasi)) salah(`jurnal ${label}: status_verifikasi tidak sah`);
+  if (!urlSah(j.url)) salah(`jurnal ${label}: url wajib berupa URL sah`);
+  if (j.url_alternatif && !urlSah(j.url_alternatif)) salah(`jurnal ${label}: url_alternatif bukan URL sah`);
+  if (!(j.sumber?.length)) salah(`jurnal ${label}: wajib punya minimal satu sumber`);
+  for (const s of j.sumber || []) if (!urlSah(s)) salah(`jurnal ${label}: sumber bukan URL sah — ${s}`);
+  for (const k of ['issn_cetak', 'issn_elektronik']) {
+    if (j[k] !== null && !ISSN.test(j[k] ?? '')) salah(`jurnal ${label}: ${k} harus berformat 1234-567X atau null bila belum diverifikasi`);
+  }
 }
-benar(`penelitian.json: ${riset.penelitian.length} entri + ${(riset.wadah_publikasi || []).length} wadah publikasi diperiksa`);
+benar(`jurnal.json: ${jurnal.jurnal.length} jurnal diperiksa`);
 
 /* --- matakuliah.json --- */
 const mk = baca('data/matakuliah.json');

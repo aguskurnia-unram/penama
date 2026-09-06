@@ -11,6 +11,7 @@ const NAV = [
   ['pembelajaran.html', 'Pembelajaran'],
   ['dosen.html', 'Direktori Dosen'],
   ['penelitian.html', 'Penelitian'],
+  ['jurnal.html', 'Jurnal'],
   ['tentang.html', 'Tentang'],
 ];
 
@@ -70,6 +71,7 @@ const kaki = `</main>
       <ul>
         <li><a href="./data/dosen.json">data/dosen.json</a></li>
         <li><a href="./data/penelitian.json">data/penelitian.json</a></li>
+        <li><a href="./data/jurnal.json">data/jurnal.json</a></li>
         <li><a href="./data/matakuliah.json">data/matakuliah.json</a></li>
       </ul>
     </div>
@@ -96,13 +98,14 @@ halaman['index.html'] = {
 </div></section>
 
 <section><div class="wrap">
-  <h2>Empat pilar portal</h2>
+  <h2>Lima pilar portal</h2>
   <p class="sub">Setiap bagian berdiri di atas berkas data terbuka yang dapat diverifikasi dan dibaca ulang oleh sistem lain, termasuk aplikasi pembelajaran AKSARA/Penama.</p>
   <div class="grid g2">
     <article class="kartu"><h3>Kurikulum MKWK</h3><p>Kedudukan Pendidikan Agama di antara mata kuliah wajib kurikulum dan mata kuliah wajib institusi Universitas Mataram.</p><p style="margin-top:12px"><a href="./kurikulum.html">Telusuri →</a></p></article>
     <article class="kartu"><h3>Praktik Pembelajaran</h3><p>Rancangan pembelajaran, capaian, pendekatan terintegrasi, kolaboratif, dan berbasis proyek untuk kelas Pendidikan Agama Islam.</p><p style="margin-top:12px"><a href="./pembelajaran.html">Telusuri →</a></p></article>
     <article class="kartu"><h3>Direktori Dosen</h3><p>Identitas profesional dosen pengampu Pendidikan Agama Islam beserta bidang kajian dan tautan profil ilmiah publik.</p><p style="margin-top:12px"><a href="./dosen.html">Telusuri →</a></p></article>
     <article class="kartu"><h3>Basis Data Penelitian</h3><p>Publikasi dan kajian tentang pendidikan agama di lingkungan Universitas Mataram, lengkap dengan tautan sumbernya.</p><p style="margin-top:12px"><a href="./penelitian.html">Telusuri →</a></p></article>
+    <article class="kartu"><h3>Direktori Jurnal</h3><p>Wadah publikasi yang dikelola Pusat MKWK Unram — SILA dan PANCA — beserta fokus, cakupan, dan cara menempatkan naskah.</p><p style="margin-top:12px"><a href="./jurnal.html">Telusuri →</a></p></article>
   </div>
 </div></section>
 
@@ -212,11 +215,40 @@ halaman['penelitian.html'] = {
 
   <div id="tabel-penelitian"></div>
 
-  <h3 style="margin-top:46px">Wadah publikasi</h3>
-  <p class="sub">Jurnal yang dikelola atau diterbitkan di lingkungan Universitas Mataram dan relevan dengan kajian MKWK.</p>
-  <div class="grid g2" id="wadah-publikasi"></div>
+  <h3 style="margin-top:46px">Hendak menerbitkan naskah?</h3>
+  <p class="sub">Jurnal yang dikelola Pusat MKWK Universitas Mataram beserta fokus dan cakupannya kini berdiri sebagai direktori tersendiri.</p>
+  <p><a class="btn btn-utama" href="./jurnal.html">Buka Direktori Jurnal →</a></p>
 
   <div class="catatan" style="margin-top:34px"><strong>Basis data ini sengaja dimulai kecil.</strong> Hanya entri dengan tautan sumber yang dapat dibuka umum yang ditayangkan, sehingga daftar bertambah seiring proses verifikasi oleh Pusat MKWK, bukan melalui pengisian massal yang tidak terperiksa.</div>
+</div></section>`,
+};
+
+halaman['jurnal.html'] = {
+  judul: 'Direktori Jurnal',
+  deskripsi: 'Direktori jurnal publikasi pendidikan agama dan MKWK di Universitas Mataram: SILA dan PANCA.',
+  isi: `
+<section><div class="wrap">
+  <h2>Direktori Jurnal Publikasi</h2>
+  <p class="sub" id="meta-jurnal">Memuat data…</p>
+
+  <p class="sub">Pusat MKWK LPMPP Universitas Mataram mengelola dua jurnal yang menjadi muara luaran akademik mata kuliah wajib, termasuk Pendidikan Agama Islam: satu untuk kajian ilmiah, satu untuk pengabdian dan aksi nyata.</p>
+
+  <div class="grid g2" id="daftar-jurnal" style="margin-top:26px"></div>
+
+  <h3 style="margin-top:46px">Memilih wadah yang tepat</h3>
+  <div class="tabel-bungkus">
+    <table>
+      <thead><tr><th>Bentuk luaran</th><th>Jurnal yang sesuai</th></tr></thead>
+      <tbody>
+        <tr><td>Kajian pembelajaran PAI, analisis kurikulum, pemikiran keagamaan</td><td><strong>SILA</strong></td></tr>
+        <tr><td>Penelitian tindakan kelas dan evaluasi capaian MKWK</td><td><strong>SILA</strong></td></tr>
+        <tr><td>Program keagamaan berbasis masyarakat, luaran pembelajaran berbasis proyek</td><td><strong>PANCA</strong></td></tr>
+        <tr><td>Laporan pengabdian dosen bersama mahasiswa</td><td><strong>PANCA</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="catatan" style="margin-top:32px"><strong>ISSN dan peringkat SINTA belum ditayangkan.</strong> Keduanya dibiarkan kosong sampai diverifikasi langsung dari laman resmi masing-masing jurnal, sesuai aturan portal ini: tidak menayangkan data yang belum ditelusuri. Pusat MKWK dapat melengkapinya di <code>data/jurnal.json</code>, dan pemeriksaan otomatis akan menolak format ISSN yang keliru.</div>
 </div></section>`,
 };
 

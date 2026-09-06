@@ -1,0 +1,67 @@
+{
+  "$schema": "./schema/jurnal.schema.json",
+  "meta": {
+    "judul": "Direktori Jurnal Publikasi Pendidikan Agama Universitas Mataram",
+    "pengelola": "Pusat MKWK, LPMPP Universitas Mataram",
+    "terakhir_diperbarui": "2026-09-06",
+    "catatan_verifikasi": "Direktori ini memuat wadah publikasi yang relevan dengan kajian Pendidikan Agama dan MKWK di Universitas Mataram. Nomor ISSN dan peringkat akreditasi SINTA dibiarkan null sampai diverifikasi langsung dari laman resmi jurnal — jangan mengisinya dari ingatan atau perkiraan.",
+    "cara_menambah": "Tambahkan entri pada larik jurnal beserta minimal satu tautan sumber resmi, lalu jalankan scripts/validate-data.mjs."
+  },
+  "jurnal": [
+    {
+      "id": "sila",
+      "singkatan": "SILA",
+      "nama": "SILA: Scientific Journal of Interdisciplinary Liberal Arts",
+      "pengelola": "Pusat MKWK di bawah koordinasi LPMPP Universitas Mataram",
+      "penerbit": "Universitas Mataram, Nusa Tenggara Barat",
+      "fokus": "Kajian kritis dan integratif atas mata kuliah wajib kurikulum dan wajib institusi",
+      "cakupan": [
+        "Pendidikan Agama",
+        "Pendidikan Pancasila",
+        "Bahasa Indonesia",
+        "Pendidikan Kewarganegaraan",
+        "Literasi Digital Abad 21",
+        "Ekosistem Kepulauan",
+        "Bahasa Inggris"
+      ],
+      "relevansi_pai": "Wadah utama bagi dosen Pendidikan Agama Islam Universitas Mataram untuk menerbitkan kajian pembelajaran, kurikulum, dan pemikiran keagamaan dalam kerangka MKWK.",
+      "jenis_naskah": ["artikel penelitian", "kajian konseptual"],
+      "periode_terbit": "Dua kali setahun (Mei dan November)",
+      "bahasa": ["Indonesia", "Inggris"],
+      "issn_cetak": null,
+      "issn_elektronik": null,
+      "akreditasi_sinta": null,
+      "url": "https://jurnal.unram.ac.id/index.php/sila",
+      "url_alternatif": "https://journal.unram.ac.id/index.php/sila",
+      "status_verifikasi": "terverifikasi",
+      "sumber": [
+        "https://jurnal.unram.ac.id/index.php/sila",
+        "https://journal.unram.ac.id/index.php/sila"
+      ]
+    },
+    {
+      "id": "panca",
+      "singkatan": "PANCA",
+      "nama": "PANCA: Jurnal Pengabdian dan Aksi Nyata Cendekiawan Akademik",
+      "pengelola": "Pusat MKWK di bawah koordinasi LPMPP Universitas Mataram",
+      "penerbit": "Universitas Mataram, Nusa Tenggara Barat",
+      "fokus": "Pengabdian kepada masyarakat dan aksi nyata akademik",
+      "cakupan": [
+        "Pengabdian kepada masyarakat",
+        "Aksi nyata akademik",
+        "Luaran pembelajaran MKWK"
+      ],
+      "relevansi_pai": "Wadah bagi luaran pengabdian dan proyek kelas Pendidikan Agama Islam — misalnya program keagamaan berbasis masyarakat yang lahir dari pembelajaran berbasis proyek.",
+      "jenis_naskah": ["laporan pengabdian", "artikel aksi nyata"],
+      "periode_terbit": null,
+      "bahasa": ["Indonesia"],
+      "issn_cetak": null,
+      "issn_elektronik": null,
+      "akreditasi_sinta": null,
+      "url": "https://jurnal.unram.ac.id/index.php/panca",
+      "url_alternatif": null,
+      "status_verifikasi": "terverifikasi",
+      "sumber": ["https://jurnal.unram.ac.id/index.php/panca"]
+    }
+  ]
+}

@@ -143,19 +143,51 @@ async function renderPenelitian() {
   jenis?.addEventListener('change', gambar);
   gambar();
 
-  const wadah = document.getElementById('wadah-publikasi');
-  if (wadah && data.wadah_publikasi) {
-    wadah.innerHTML = data.wadah_publikasi
-      .map(
-        (w) => `<article class="kartu">
-          <h3>${esc(w.nama)}</h3>
-          <p>${esc(w.cakupan)}</p>
-          <p style="margin-top:10px"><strong>Pengelola:</strong> ${esc(w.pengelola)}${w.periode_terbit ? `<br><strong>Terbit:</strong> ${esc(w.periode_terbit)}` : ''}</p>
-          ${w.url ? `<p style="margin-top:10px"><a href="${esc(w.url)}" target="_blank" rel="noopener noreferrer">Kunjungi jurnal →</a></p>` : ''}
-        </article>`
-      )
-      .join('');
+}
+
+/* ---------- Halaman jurnal ---------- */
+async function renderJurnal() {
+  const host = document.getElementById('daftar-jurnal');
+  if (!host) return;
+
+  let data;
+  try {
+    data = await muat('jurnal');
+  } catch (e) {
+    host.innerHTML = `<div class="kosong">${esc(e.message)}</div>`;
+    return;
   }
+
+  const info = document.getElementById('meta-jurnal');
+  if (info) info.textContent = `Terakhir diperbarui ${data.meta.terakhir_diperbarui} · dikelola ${data.meta.pengelola}`;
+
+  // ISSN dan akreditasi hanya muncul setelah diverifikasi; selama null, baris
+  // itu tidak digambar sama sekali daripada menampilkan tanda tanya.
+  const baris = (label, nilai) =>
+    nilai ? `<p style="margin-top:8px"><strong>${esc(label)}:</strong> ${esc(nilai)}</p>` : '';
+
+  host.innerHTML = data.jurnal
+    .map(
+      (j) => `<article class="kartu">
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
+          <h3>${esc(j.singkatan)}</h3>${lencana(j.status_verifikasi)}
+        </div>
+        <p style="font-weight:600;color:var(--tinta)">${esc(j.nama)}</p>
+        <p style="margin-top:10px">${esc(j.fokus)}</p>
+        ${j.relevansi_pai ? `<p style="margin-top:10px"><strong>Bagi PAI:</strong> ${esc(j.relevansi_pai)}</p>` : ''}
+        <div style="margin-top:12px">${(j.cakupan || []).map((c) => `<span class="tag">${esc(c)}</span>`).join('')}</div>
+        ${baris('Pengelola', j.pengelola)}
+        ${baris('Penerbit', j.penerbit)}
+        ${baris('Terbit', j.periode_terbit)}
+        ${baris('Bahasa', (j.bahasa || []).join(', '))}
+        ${baris('Jenis naskah', (j.jenis_naskah || []).join(', '))}
+        ${baris('ISSN cetak', j.issn_cetak)}
+        ${baris('ISSN elektronik', j.issn_elektronik)}
+        ${baris('Akreditasi SINTA', j.akreditasi_sinta)}
+        <p style="margin-top:14px"><a href="${esc(j.url)}" target="_blank" rel="noopener noreferrer">Kunjungi jurnal →</a></p>
+      </article>`
+    )
+    .join('');
 }
 
 /* ---------- Halaman kurikulum ---------- */
@@ -185,6 +217,7 @@ async function renderKurikulum() {
 document.addEventListener('DOMContentLoaded', () => {
   renderDosen();
   renderPenelitian();
+  renderJurnal();
   renderKurikulum();
   const th = document.getElementById('tahun');
   if (th) th.textContent = new Date().getFullYear();
