@@ -27,7 +27,11 @@ jobs:
           node-version: '20'
       - name: Periksa berkas data sebelum terbit
         run: node scripts/validate-data.mjs
+      # enablement: true menyalakan GitHub Pages lewat API bila belum aktif,
+      # sehingga penerbitan pertama tidak perlu diklik manual di Settings.
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
