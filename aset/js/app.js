@@ -18,6 +18,16 @@ const lencana = (status) =>
     ? '<span class="badge badge-ok">terverifikasi</span>'
     : '<span class="badge badge-tunggu">menunggu verifikasi</span>';
 
+// Inisial dipakai sebagai avatar selama belum ada foto, sehingga kartu tetap
+// seragam tanpa memuat gambar orang tanpa izin.
+const inisial = (nama) =>
+  nama
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((k) => k[0].toUpperCase())
+    .join('');
+
 const namaLengkap = (d) =>
   [d.gelar_depan, d.nama, d.gelar_belakang].filter(Boolean).join(' ').replace(' ,', ',');
 
@@ -67,11 +77,20 @@ async function renderDosen() {
         const pend = (d.pendidikan || [])
           .map((p) => `${esc(p.jenjang)} — ${esc(p.program)}, ${esc(p.institusi)}`)
           .join('<br>');
+        const rupa = d.foto
+          ? `<img class="rupa" src="${esc(d.foto)}" alt="" loading="lazy" width="56" height="56">`
+          : `<span class="rupa rupa-inisial" aria-hidden="true">${esc(inisial(d.nama))}</span>`;
         return `<article class="kartu">
-          <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
-            <h3>${esc(namaLengkap(d))}</h3>${lencana(d.status_verifikasi)}
+          <div style="display:flex;gap:14px;align-items:flex-start">
+            ${rupa}
+            <div style="flex:1;min-width:0">
+              <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
+                <h3 style="margin:0">${esc(namaLengkap(d))}</h3>${lencana(d.status_verifikasi)}
+              </div>
+              <p style="margin:6px 0 0">${esc(d.unit)}<br>${esc(d.institusi)}</p>
+            </div>
           </div>
-          <p>${esc(d.unit)}<br>${esc(d.institusi)}</p>
+          ${d.homebase ? `<p style="margin-top:10px"><strong>Homebase:</strong> ${esc(d.homebase)}</p>` : ''}
           ${d.mata_kuliah_diampu?.length ? `<p style="margin-top:10px"><strong>Mata kuliah:</strong> ${esc(d.mata_kuliah_diampu.join(', '))}</p>` : ''}
           ${pend ? `<p style="margin-top:10px"><strong>Pendidikan:</strong><br>${pend}</p>` : ''}
           ${d.atestasi ? `<p style="margin-top:10px;font-size:14px;color:var(--abu)"><strong>Asal keterangan:</strong> ${esc(d.atestasi)}</p>` : ''}

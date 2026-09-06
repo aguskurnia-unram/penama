@@ -22,6 +22,8 @@
           "bidang_kajian": { "type": "array", "items": { "type": "string" } },
           "pendidikan": { "type": "array" },
           "atestasi": { "type": ["string", "null"] },
+          "homebase": { "type": ["string", "null"] },
+          "foto": { "type": ["string", "null"] },
           "profil": { "type": "object" },
           "sumber": { "type": "array", "items": { "type": "string", "format": "uri" } }
         }

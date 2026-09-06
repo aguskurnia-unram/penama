@@ -33,6 +33,12 @@ for (const d of dosen.dosen) {
   }
   for (const s of d.sumber || []) if (!urlSah(s)) salah(`dosen ${label}: sumber bukan URL sah — ${s}`);
   for (const [k, v] of Object.entries(d.profil || {})) if (v && !urlSah(v)) salah(`dosen ${label}: profil.${k} bukan URL sah`);
+  // Foto disimpan di dalam repositori ini agar portal tidak bergantung pada
+  // gambar milik pihak lain yang bisa berubah atau hilang. Pemuatan foto orang
+  // hanya sah setelah yang bersangkutan mengizinkan.
+  if (d.foto && !/^aset\/foto\/[A-Za-z0-9._-]+\.(jpg|jpeg|png|webp)$/.test(d.foto)) {
+    salah(`dosen ${label}: foto harus berupa jalur seperti aset/foto/nama.jpg di dalam repositori ini`);
+  }
   if (/\b\d{18}\b/.test(JSON.stringify(d))) salah(`dosen ${label}: terdeteksi angka 18 digit yang menyerupai NIP — data pribadi tidak boleh ditayangkan`);
 }
 benar(`dosen.json: ${dosen.dosen.length} entri diperiksa`);

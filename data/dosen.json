@@ -12,7 +12,7 @@
       "id": "agus-kurnia",
       "nama": "Agus Kurnia",
       "gelar_depan": "",
-      "gelar_belakang": "",
+      "gelar_belakang": "S.S., M.Ag.",
       "status_verifikasi": "terverifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
@@ -41,20 +41,29 @@
       "sumber": [
         "https://scholar.google.co.id/citations?hl=id&user=O-mJypoAAAAJ",
         "https://www.researchgate.net/profile/Agus-Kurnia"
-      ]
+      ],
+      "homebase": null,
+      "foto": null,
+      "atestasi": null
     },
     {
       "id": "lenny-herlina",
       "nama": "Lenny Herlina",
-      "gelar_depan": "",
-      "gelar_belakang": "",
-      "status_verifikasi": "menunggu_verifikasi",
+      "gelar_depan": "Dr.",
+      "gelar_belakang": "M.Pd.I.",
+      "status_verifikasi": "terverifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "homebase": null,
+      "foto": null,
       "mata_kuliah_diampu": [
         "Pendidikan Agama Islam"
       ],
-      "bidang_kajian": [],
+      "bidang_kajian": [
+        "Pendidikan Agama Islam",
+        "Moderasi beragama",
+        "Pendidikan Islam berbasis riset"
+      ],
       "pendidikan": [],
       "atestasi": "Disampaikan oleh pengampu MKWK Pendidikan Agama Islam Universitas Mataram, September 2026",
       "profil": {
@@ -62,16 +71,21 @@
         "sinta": null,
         "researchgate": null
       },
-      "sumber": []
+      "sumber": [
+        "https://id.linkedin.com/in/lenny-herlina-ab90793a0",
+        "https://fis.unj.ac.id/boie/?p=2871"
+      ]
     },
     {
       "id": "arif-nasrullah",
       "nama": "Arif Nasrullah",
       "gelar_depan": "",
-      "gelar_belakang": "",
+      "gelar_belakang": "Lc., M.A.",
       "status_verifikasi": "menunggu_verifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "homebase": null,
+      "foto": null,
       "mata_kuliah_diampu": [
         "Pendidikan Agama Islam"
       ],
@@ -89,10 +103,12 @@
       "id": "humamurrizqi",
       "nama": "Humamurrizqi",
       "gelar_depan": "",
-      "gelar_belakang": "",
+      "gelar_belakang": "M.Ag.",
       "status_verifikasi": "menunggu_verifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "homebase": null,
+      "foto": null,
       "mata_kuliah_diampu": [
         "Pendidikan Agama Islam"
       ],
@@ -110,10 +126,12 @@
       "id": "jamaludin",
       "nama": "Jamaludin",
       "gelar_depan": "",
-      "gelar_belakang": "",
+      "gelar_belakang": "M.Pd.I.",
       "status_verifikasi": "menunggu_verifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "homebase": null,
+      "foto": null,
       "mata_kuliah_diampu": [
         "Pendidikan Agama Islam"
       ],
@@ -128,13 +146,15 @@
       "sumber": []
     },
     {
-      "id": "m-safrudin",
-      "nama": "M. Safrudin",
+      "id": "muhamad-safrudin",
+      "nama": "Muhamad Safrudin",
       "gelar_depan": "",
-      "gelar_belakang": "",
+      "gelar_belakang": "M.A.",
       "status_verifikasi": "menunggu_verifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "homebase": null,
+      "foto": null,
       "mata_kuliah_diampu": [
         "Pendidikan Agama Islam"
       ],
@@ -149,13 +169,15 @@
       "sumber": []
     },
     {
-      "id": "zainudin-abdul-majid",
-      "nama": "Zainudin Abdul Majid",
+      "id": "muhammad-abdul-hafiz",
+      "nama": "Muhammad Abdul Hafiz",
       "gelar_depan": "",
-      "gelar_belakang": "",
+      "gelar_belakang": "Lc., M.Ag.",
       "status_verifikasi": "menunggu_verifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "homebase": null,
+      "foto": null,
       "mata_kuliah_diampu": [
         "Pendidikan Agama Islam"
       ],
@@ -170,13 +192,15 @@
       "sumber": []
     },
     {
-      "id": "syapalarisa-sulthoni",
-      "nama": "Syapalarisa Sulthoni",
+      "id": "syapalarisa-sulthani",
+      "nama": "Syapalarisa Sulthani",
       "gelar_depan": "",
-      "gelar_belakang": "",
+      "gelar_belakang": "M.Pd.",
       "status_verifikasi": "menunggu_verifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "homebase": null,
+      "foto": null,
       "mata_kuliah_diampu": [
         "Pendidikan Agama Islam"
       ],

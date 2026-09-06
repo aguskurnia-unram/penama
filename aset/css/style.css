@@ -79,6 +79,15 @@ section h2 { font-size: clamp(22px, 3vw, 30px); margin: 0 0 8px; }
 .kartu p { margin: 0; color: var(--abu); font-size: 15px; }
 .kartu .kode { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--emas); font-weight: 700; }
 
+.rupa {
+  width: 56px; height: 56px; flex: none; border-radius: 50%;
+  object-fit: cover; background: #eef4f0; border: 1px solid var(--garis);
+}
+.rupa-inisial {
+  display: grid; place-items: center; font-weight: 700; font-size: 18px;
+  color: var(--hijau); letter-spacing: .02em;
+}
+
 .badge {
   display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .04em;
   padding: 3px 9px; border-radius: 999px; text-transform: uppercase;

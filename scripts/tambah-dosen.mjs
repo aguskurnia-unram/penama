@@ -13,6 +13,8 @@
  *   gelar_depan     opsional, mis. Dr.
  *   gelar_belakang  opsional, mis. S.Ag., M.Pd.I.
  *   unit            opsional, bawaan "Pusat MKWK / MKWU, LPMPP Universitas Mataram"
+ *   homebase        opsional, fakultas atau program studi asal
+ *   foto            opsional, jalur seperti aset/foto/nama.jpg
  *   mata_kuliah     opsional, dipisah titik koma
  *   bidang          opsional, dipisah titik koma
  *   scholar         opsional, URL profil Google Scholar
@@ -117,6 +119,8 @@ for (const b of baris) {
     status_verifikasi: sumber.length ? 'terverifikasi' : 'menunggu_verifikasi',
     institusi: 'Universitas Mataram',
     unit: kolom.unit || UNIT_BAWAAN,
+    homebase: kolom.homebase || null,
+    foto: kolom.foto || null,
     mata_kuliah_diampu: pisah(kolom.mata_kuliah).length ? pisah(kolom.mata_kuliah) : ['Pendidikan Agama Islam'],
     bidang_kajian: pisah(kolom.bidang),
     pendidikan: [],
