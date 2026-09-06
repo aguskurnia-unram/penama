@@ -28,8 +28,12 @@ const inisial = (nama) =>
     .map((k) => k[0].toUpperCase())
     .join('');
 
-const namaLengkap = (d) =>
-  [d.gelar_depan, d.nama, d.gelar_belakang].filter(Boolean).join(' ').replace(' ,', ',');
+// Gelar depan menempel dengan spasi, gelar belakang dipisah koma sesuai
+// kelaziman penulisan nama akademik Indonesia: Dr. Lenny Herlina, M.Pd.I.
+const namaLengkap = (d) => {
+  const depan = [d.gelar_depan, d.nama].filter(Boolean).join(' ');
+  return d.gelar_belakang ? `${depan}, ${d.gelar_belakang}` : depan;
+};
 
 /* ---------- Halaman dosen ---------- */
 async function renderDosen() {
