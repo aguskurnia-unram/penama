@@ -4,7 +4,7 @@
     "judul": "Direktori Dosen Pendidikan Agama Islam Universitas Mataram",
     "pengelola": "Pusat MKWK, LPMPP Universitas Mataram",
     "terakhir_diperbarui": "2026-09-06",
-    "catatan_verifikasi": "Hanya entri dengan status_verifikasi = \"terverifikasi\" yang memiliki sumber publik yang dapat ditelusuri pada kolom sumber. Entri dengan status \"menunggu_verifikasi\" adalah kerangka data yang WAJIB dilengkapi oleh Pusat MKWK sebelum dipublikasikan. Nomor induk pegawai (NIP/NIDN) tidak dicantumkan sebelum ada persetujuan tertulis dari yang bersangkutan dan Pusat MKWK.",
+    "catatan_verifikasi": "Status \"terverifikasi\" berarti entri memiliki tautan sumber publik yang dapat ditelusuri pada kolom sumber. Status \"menunggu_verifikasi\" berarti nama dinyatakan oleh pengelola mata kuliah — dicatat pada kolom atestasi — namun tautan profil resminya (SINTA, Google Scholar, atau halaman staf Unram) belum dilampirkan; entri seperti ini belum layak dikutip sebagai data resmi. Nomor induk pegawai (NIP/NIDN) tidak dicantumkan sebelum ada persetujuan tertulis dari yang bersangkutan dan Pusat MKWK.",
     "kebijakan_data_pribadi": "Direktori ini hanya memuat data profesional yang telah dipublikasikan secara terbuka oleh dosen yang bersangkutan (profil Scholar/SINTA/ResearchGate, halaman resmi unit). Permintaan koreksi atau penghapusan dapat diajukan melalui Pusat MKWK LPMPP Unram."
   },
   "dosen": [
@@ -16,7 +16,9 @@
       "status_verifikasi": "terverifikasi",
       "institusi": "Universitas Mataram",
       "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
-      "mata_kuliah_diampu": ["Pendidikan Agama Islam"],
+      "mata_kuliah_diampu": [
+        "Pendidikan Agama Islam"
+      ],
       "bidang_kajian": [
         "Islamic Education",
         "Halal Industry",
@@ -40,6 +42,153 @@
         "https://scholar.google.co.id/citations?hl=id&user=O-mJypoAAAAJ",
         "https://www.researchgate.net/profile/Agus-Kurnia"
       ]
+    },
+    {
+      "id": "lenny-herlina",
+      "nama": "Lenny Herlina",
+      "gelar_depan": "",
+      "gelar_belakang": "",
+      "status_verifikasi": "menunggu_verifikasi",
+      "institusi": "Universitas Mataram",
+      "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "mata_kuliah_diampu": [
+        "Pendidikan Agama Islam"
+      ],
+      "bidang_kajian": [],
+      "pendidikan": [],
+      "atestasi": "Disampaikan oleh pengampu MKWK Pendidikan Agama Islam Universitas Mataram, September 2026",
+      "profil": {
+        "google_scholar": null,
+        "sinta": null,
+        "researchgate": null
+      },
+      "sumber": []
+    },
+    {
+      "id": "arif-nasrullah",
+      "nama": "Arif Nasrullah",
+      "gelar_depan": "",
+      "gelar_belakang": "",
+      "status_verifikasi": "menunggu_verifikasi",
+      "institusi": "Universitas Mataram",
+      "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "mata_kuliah_diampu": [
+        "Pendidikan Agama Islam"
+      ],
+      "bidang_kajian": [],
+      "pendidikan": [],
+      "atestasi": "Disampaikan oleh pengampu MKWK Pendidikan Agama Islam Universitas Mataram, September 2026",
+      "profil": {
+        "google_scholar": null,
+        "sinta": null,
+        "researchgate": null
+      },
+      "sumber": []
+    },
+    {
+      "id": "humamurrizqi",
+      "nama": "Humamurrizqi",
+      "gelar_depan": "",
+      "gelar_belakang": "",
+      "status_verifikasi": "menunggu_verifikasi",
+      "institusi": "Universitas Mataram",
+      "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "mata_kuliah_diampu": [
+        "Pendidikan Agama Islam"
+      ],
+      "bidang_kajian": [],
+      "pendidikan": [],
+      "atestasi": "Disampaikan oleh pengampu MKWK Pendidikan Agama Islam Universitas Mataram, September 2026",
+      "profil": {
+        "google_scholar": null,
+        "sinta": null,
+        "researchgate": null
+      },
+      "sumber": []
+    },
+    {
+      "id": "jamaludin",
+      "nama": "Jamaludin",
+      "gelar_depan": "",
+      "gelar_belakang": "",
+      "status_verifikasi": "menunggu_verifikasi",
+      "institusi": "Universitas Mataram",
+      "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "mata_kuliah_diampu": [
+        "Pendidikan Agama Islam"
+      ],
+      "bidang_kajian": [],
+      "pendidikan": [],
+      "atestasi": "Disampaikan oleh pengampu MKWK Pendidikan Agama Islam Universitas Mataram, September 2026",
+      "profil": {
+        "google_scholar": null,
+        "sinta": null,
+        "researchgate": null
+      },
+      "sumber": []
+    },
+    {
+      "id": "m-safrudin",
+      "nama": "M. Safrudin",
+      "gelar_depan": "",
+      "gelar_belakang": "",
+      "status_verifikasi": "menunggu_verifikasi",
+      "institusi": "Universitas Mataram",
+      "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "mata_kuliah_diampu": [
+        "Pendidikan Agama Islam"
+      ],
+      "bidang_kajian": [],
+      "pendidikan": [],
+      "atestasi": "Disampaikan oleh pengampu MKWK Pendidikan Agama Islam Universitas Mataram, September 2026",
+      "profil": {
+        "google_scholar": null,
+        "sinta": null,
+        "researchgate": null
+      },
+      "sumber": []
+    },
+    {
+      "id": "zainudin-abdul-majid",
+      "nama": "Zainudin Abdul Majid",
+      "gelar_depan": "",
+      "gelar_belakang": "",
+      "status_verifikasi": "menunggu_verifikasi",
+      "institusi": "Universitas Mataram",
+      "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "mata_kuliah_diampu": [
+        "Pendidikan Agama Islam"
+      ],
+      "bidang_kajian": [],
+      "pendidikan": [],
+      "atestasi": "Disampaikan oleh pengampu MKWK Pendidikan Agama Islam Universitas Mataram, September 2026",
+      "profil": {
+        "google_scholar": null,
+        "sinta": null,
+        "researchgate": null
+      },
+      "sumber": []
+    },
+    {
+      "id": "syapalarisa-sulthoni",
+      "nama": "Syapalarisa Sulthoni",
+      "gelar_depan": "",
+      "gelar_belakang": "",
+      "status_verifikasi": "menunggu_verifikasi",
+      "institusi": "Universitas Mataram",
+      "unit": "Pusat MKWK / MKWU, LPMPP Universitas Mataram",
+      "mata_kuliah_diampu": [
+        "Pendidikan Agama Islam"
+      ],
+      "bidang_kajian": [],
+      "pendidikan": [],
+      "atestasi": "Disampaikan oleh pengampu MKWK Pendidikan Agama Islam Universitas Mataram, September 2026",
+      "profil": {
+        "google_scholar": null,
+        "sinta": null,
+        "researchgate": null
+      },
+      "sumber": []
     }
   ]
 }

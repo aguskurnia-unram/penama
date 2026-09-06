@@ -189,7 +189,7 @@ halaman['dosen.html'] = {
   <h2>Direktori Dosen Pendidikan Agama Islam</h2>
   <p class="sub" id="meta-dosen">Memuat data…</p>
 
-  <div class="catatan" style="margin-bottom:26px"><strong>Kebijakan data.</strong> Direktori hanya memuat data profesional yang telah dipublikasikan secara terbuka oleh dosen bersangkutan. Nomor induk pegawai (NIP/NIDN), kontak pribadi, dan data pribadi lain tidak ditayangkan tanpa persetujuan tertulis. Nama yang belum terverifikasi tidak dicantumkan sama sekali — kolom yang belum lengkap diisi oleh Pusat MKWK melalui pengajuan perubahan di repositori.</div>
+  <div class="catatan" style="margin-bottom:26px"><strong>Kebijakan data.</strong> Direktori hanya memuat data profesional; nomor induk pegawai (NIP/NIDN), kontak pribadi, dan data pribadi lain tidak ditayangkan tanpa persetujuan tertulis.<br><br>Setiap entri diberi status yang kasatmata. <span class="badge badge-ok">terverifikasi</span> berarti ada tautan sumber publik yang dapat ditelusuri. <span class="badge badge-tunggu">menunggu verifikasi</span> berarti nama tersebut dinyatakan oleh pengelola mata kuliah — asal keterangannya dicantumkan pada kartu — tetapi tautan profil resminya belum dilampirkan. Entri berstatus menunggu verifikasi belum layak dikutip sebagai data resmi.</div>
 
   <div class="alat">
     <input id="cari-dosen" type="search" placeholder="Cari nama, unit, atau bidang kajian…" aria-label="Cari dosen">

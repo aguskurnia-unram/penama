@@ -25,6 +25,12 @@ for (const d of dosen.dosen) {
   if (!d.institusi) salah(`dosen ${label}: institusi wajib diisi`);
   if (!d.unit) salah(`dosen ${label}: unit wajib diisi`);
   if (d.status_verifikasi === 'terverifikasi' && !(d.sumber?.length)) salah(`dosen ${label}: entri terverifikasi wajib punya minimal satu sumber`);
+  // Atestasi mencatat siapa yang menyatakan sebuah nama, dan sengaja TIDAK
+  // dianggap setara dengan sumber publik: keterangan lisan tetap menyisakan
+  // status menunggu_verifikasi sampai ada tautan yang dapat ditelusuri.
+  if (d.atestasi && d.status_verifikasi === 'terverifikasi' && !(d.sumber?.length)) {
+    salah(`dosen ${label}: atestasi tidak menggantikan sumber publik`);
+  }
   for (const s of d.sumber || []) if (!urlSah(s)) salah(`dosen ${label}: sumber bukan URL sah — ${s}`);
   for (const [k, v] of Object.entries(d.profil || {})) if (v && !urlSah(v)) salah(`dosen ${label}: profil.${k} bukan URL sah`);
   if (/\b\d{18}\b/.test(JSON.stringify(d))) salah(`dosen ${label}: terdeteksi angka 18 digit yang menyerupai NIP — data pribadi tidak boleh ditayangkan`);

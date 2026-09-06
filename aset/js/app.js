@@ -74,6 +74,7 @@ async function renderDosen() {
           <p>${esc(d.unit)}<br>${esc(d.institusi)}</p>
           ${d.mata_kuliah_diampu?.length ? `<p style="margin-top:10px"><strong>Mata kuliah:</strong> ${esc(d.mata_kuliah_diampu.join(', '))}</p>` : ''}
           ${pend ? `<p style="margin-top:10px"><strong>Pendidikan:</strong><br>${pend}</p>` : ''}
+          ${d.atestasi ? `<p style="margin-top:10px;font-size:14px;color:var(--abu)"><strong>Asal keterangan:</strong> ${esc(d.atestasi)}</p>` : ''}
           <div style="margin-top:10px">${(d.bidang_kajian || []).map((b) => `<span class="tag">${esc(b)}</span>`).join('')}</div>
           ${tautan ? `<p style="margin-top:12px;font-size:14px">${tautan}</p>` : ''}
         </article>`;

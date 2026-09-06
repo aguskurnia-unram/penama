@@ -46,7 +46,9 @@ Pusat MKWK dari dokumen resmi unit.
 
 Yang sudah terisi dan terverifikasi:
 
-- 1 entri dosen (Agus Kurnia — MKWK/MKWU Unram, dengan tautan Google Scholar dan ResearchGate);
+- 8 entri dosen pengampu MKWK Pendidikan Agama Islam: 1 terverifikasi dengan
+  tautan Google Scholar dan ResearchGate, 7 berstatus menunggu verifikasi
+  karena dinyatakan pengelola mata kuliah namun belum dilampiri tautan profil;
 - 2 entri penelitian dengan tautan sumber;
 - 2 jurnal publikasi (SILA dan PANCA, dikelola Pusat MKWK LPMPP Unram);
 - struktur lengkap MKWK dan MKWI.

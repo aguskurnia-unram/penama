@@ -21,6 +21,7 @@
           "mata_kuliah_diampu": { "type": "array", "items": { "type": "string" } },
           "bidang_kajian": { "type": "array", "items": { "type": "string" } },
           "pendidikan": { "type": "array" },
+          "atestasi": { "type": ["string", "null"] },
           "profil": { "type": "object" },
           "sumber": { "type": "array", "items": { "type": "string", "format": "uri" } }
         }

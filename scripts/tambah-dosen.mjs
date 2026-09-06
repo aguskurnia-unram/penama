@@ -19,6 +19,8 @@
  *   sinta           opsional, URL profil SINTA
  *   researchgate    opsional, URL profil ResearchGate
  *   sumber          opsional, URL dipisah titik koma
+ *   atestasi        opsional, keterangan siapa yang menyatakan nama ini —
+ *                   dicatat apa adanya dan TIDAK menggantikan sumber publik
  *
  * Entri masuk sebagai "menunggu_verifikasi" kecuali ada minimal satu sumber
  * atau satu URL profil — persis aturan yang ditegakkan validate-data.mjs,
@@ -118,6 +120,7 @@ for (const b of baris) {
     mata_kuliah_diampu: pisah(kolom.mata_kuliah).length ? pisah(kolom.mata_kuliah) : ['Pendidikan Agama Islam'],
     bidang_kajian: pisah(kolom.bidang),
     pendidikan: [],
+    atestasi: kolom.atestasi || null,
     profil,
     sumber,
   });
