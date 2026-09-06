@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kurikulum MKWK — Penama Online</title>
-<meta name="description" content="Struktur mata kuliah wajib kurikulum dan wajib institusi Universitas Mataram serta kedudukan Pendidikan Agama Islam.">
-<meta property="og:title" content="Kurikulum MKWK — Penama Online">
-<meta property="og:description" content="Struktur mata kuliah wajib kurikulum dan wajib institusi Universitas Mataram serta kedudukan Pendidikan Agama Islam.">
+<title>Materi Dosen — Penama Online</title>
+<meta name="description" content="Portal materi pembelajaran mandiri milik dosen pengampu Pendidikan Agama Islam Universitas Mataram.">
+<meta property="og:title" content="Materi Dosen — Penama Online">
+<meta property="og:description" content="Portal materi pembelajaran mandiri milik dosen pengampu Pendidikan Agama Islam Universitas Mataram.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="id_ID">
-<link rel="canonical" href="https://penama.online/kurikulum.html">
+<link rel="canonical" href="https://penama.online/materi.html">
 <link rel="icon" href="./aset/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="./aset/css/style.css">
 <script defer src="./aset/js/app.js"></script>
@@ -26,9 +26,9 @@
   </a>
   <nav class="utama" aria-label="Navigasi utama">
     <a href="./index.html">Beranda</a>
-    <a href="./kurikulum.html" aria-current="page">Kurikulum MKWK</a>
+    <a href="./kurikulum.html">Kurikulum MKWK</a>
     <a href="./pembelajaran.html">Pembelajaran</a>
-    <a href="./materi.html">Materi Dosen</a>
+    <a href="./materi.html" aria-current="page">Materi Dosen</a>
     <a href="./dosen.html">Direktori Dosen</a>
     <a href="./penelitian.html">Penelitian</a>
     <a href="./jurnal.html">Jurnal</a>
@@ -38,13 +38,30 @@
 </div></header>
 <main>
 <section><div class="wrap">
-  <h2>Kurikulum Mata Kuliah Wajib</h2>
-  <p class="sub">Mata kuliah wajib kurikulum (MKWK) diselenggarakan mengikuti ketentuan Direktorat Jenderal Pendidikan Tinggi dan dikelola di Universitas Mataram oleh Pusat MKWK di bawah koordinasi LPMPP.</p>
-  <h3 style="margin-top:26px">Mata Kuliah Wajib Kurikulum (MKWK)</h3>
-  <div class="grid g2" id="daftar-mkwk" style="margin-top:14px"></div>
-  <h3 style="margin-top:38px">Mata Kuliah Wajib Institusi (MKWI)</h3>
-  <div class="grid g3" id="daftar-mkwi" style="margin-top:14px"></div>
-  <div class="catatan" style="margin-top:32px"><strong>Catatan.</strong> Bobot sks, kode resmi, dan sebaran semester mengikuti dokumen kurikulum yang ditetapkan universitas. Kolom <code>kode</code> pada berkas data adalah pengenal internal portal, bukan kode mata kuliah resmi.</div>
+  <h2>Portal Materi Dosen</h2>
+  <p class="sub" id="meta-materi">Memuat data…</p>
+
+  <p class="sub">Selain ruang kelas digital bersama, setiap dosen pengampu dapat memiliki portal materi pembelajaran mandiri — tempat bahan ajar, rekaman, dan penugasan kelasnya sendiri. Portal yang sudah berjalan terdaftar di bawah ini.</p>
+
+  <div class="grid g2" id="materi-tersedia" style="margin-top:26px"></div>
+
+  <h3 style="margin-top:46px">Menunggu pendaftaran</h3>
+  <p class="sub">Dosen berikut belum mendaftarkan portal mandiri. Tempatnya sudah tersedia dan tinggal diisi bila kelak dibangun.</p>
+  <div id="materi-belum"></div>
+
+  <h3 style="margin-top:46px">Mendaftarkan portal</h3>
+  <p class="sub">Portal boleh berupa apa saja yang dapat diakses lewat tautan — subdomain sendiri, situs statis, ruang kelas daring, atau kanal video. Yang diperlukan hanya alamatnya.</p>
+  <div class="tabel-bungkus">
+    <table>
+      <thead><tr><th>Bidang</th><th>Isi</th></tr></thead>
+      <tbody>
+        <tr><td><code>url</code></td><td>Alamat portal, wajib. Contoh: <code>https://materi.penama.online</code></td></tr>
+        <tr><td><code>nama</code></td><td>Nama portal sebagaimana ingin ditampilkan</td></tr>
+        <tr><td><code>keterangan</code></td><td>Satu kalimat tentang isinya</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sub" style="margin-top:16px">Ketiganya diisi pada bidang <code>portal_materi</code> milik dosen bersangkutan di <code>data/dosen.json</code>. Selama masih <code>null</code>, kartu dosen menampilkan keterangan bahwa portalnya belum tersedia.</p>
 </div></section>
 </main>
 <footer class="situs"><div class="wrap">

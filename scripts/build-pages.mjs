@@ -12,6 +12,7 @@ const NAV = [
   ['index.html', 'Beranda'],
   ['kurikulum.html', 'Kurikulum MKWK'],
   ['pembelajaran.html', 'Pembelajaran'],
+  ['materi.html', 'Materi Dosen'],
   ['dosen.html', 'Direktori Dosen'],
   ['penelitian.html', 'Penelitian'],
   ['jurnal.html', 'Jurnal'],
@@ -169,6 +170,38 @@ halaman['pembelajaran.html'] = {
     <article class="kartu"><h3>Aplikasi Pembelajaran (AKSARA PAI)</h3><p>Direktori <code>penama.online/pai/</code> — ruang kelas digital untuk dosen, mahasiswa, dan admin: dokumen mata kuliah, agenda, portofolio, dan audit kelas.</p></article>
     <article class="kartu"><h3>Portal Penama Online</h3><p>Situs utama di <code>penama.online</code>: kurikulum, direktori dosen, jurnal, dan basis data penelitian yang terbuka untuk ditelusuri siapa pun.</p></article>
   </div>
+</div></section>`,
+};
+
+halaman['materi.html'] = {
+  judul: 'Materi Dosen',
+  deskripsi: 'Portal materi pembelajaran mandiri milik dosen pengampu Pendidikan Agama Islam Universitas Mataram.',
+  isi: `
+<section><div class="wrap">
+  <h2>Portal Materi Dosen</h2>
+  <p class="sub" id="meta-materi">Memuat data…</p>
+
+  <p class="sub">Selain ruang kelas digital bersama, setiap dosen pengampu dapat memiliki portal materi pembelajaran mandiri — tempat bahan ajar, rekaman, dan penugasan kelasnya sendiri. Portal yang sudah berjalan terdaftar di bawah ini.</p>
+
+  <div class="grid g2" id="materi-tersedia" style="margin-top:26px"></div>
+
+  <h3 style="margin-top:46px">Menunggu pendaftaran</h3>
+  <p class="sub">Dosen berikut belum mendaftarkan portal mandiri. Tempatnya sudah tersedia dan tinggal diisi bila kelak dibangun.</p>
+  <div id="materi-belum"></div>
+
+  <h3 style="margin-top:46px">Mendaftarkan portal</h3>
+  <p class="sub">Portal boleh berupa apa saja yang dapat diakses lewat tautan — subdomain sendiri, situs statis, ruang kelas daring, atau kanal video. Yang diperlukan hanya alamatnya.</p>
+  <div class="tabel-bungkus">
+    <table>
+      <thead><tr><th>Bidang</th><th>Isi</th></tr></thead>
+      <tbody>
+        <tr><td><code>url</code></td><td>Alamat portal, wajib. Contoh: <code>https://materi.penama.online</code></td></tr>
+        <tr><td><code>nama</code></td><td>Nama portal sebagaimana ingin ditampilkan</td></tr>
+        <tr><td><code>keterangan</code></td><td>Satu kalimat tentang isinya</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sub" style="margin-top:16px">Ketiganya diisi pada bidang <code>portal_materi</code> milik dosen bersangkutan di <code>data/dosen.json</code>. Selama masih <code>null</code>, kartu dosen menampilkan keterangan bahwa portalnya belum tersedia.</p>
 </div></section>`,
 };
 

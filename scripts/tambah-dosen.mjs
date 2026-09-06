@@ -15,6 +15,8 @@
  *   unit            opsional, bawaan "Pusat MKWK / MKWU, LPMPP Universitas Mataram"
  *   homebase        opsional, fakultas atau program studi asal
  *   foto            opsional, jalur seperti aset/foto/nama.jpg
+ *   portal_materi       opsional, URL portal materi pembelajaran mandiri
+ *   portal_materi_nama  opsional, nama portal tersebut
  *   mata_kuliah     opsional, dipisah titik koma
  *   bidang          opsional, dipisah titik koma
  *   scholar         opsional, URL profil Google Scholar
@@ -121,6 +123,9 @@ for (const b of baris) {
     unit: kolom.unit || UNIT_BAWAAN,
     homebase: kolom.homebase || null,
     foto: kolom.foto || null,
+    portal_materi: kolom.portal_materi
+      ? { nama: kolom.portal_materi_nama || 'Portal Materi', url: kolom.portal_materi }
+      : null,
     mata_kuliah_diampu: pisah(kolom.mata_kuliah).length ? pisah(kolom.mata_kuliah) : ['Pendidikan Agama Islam'],
     bidang_kajian: pisah(kolom.bidang),
     pendidikan: [],

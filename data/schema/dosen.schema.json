@@ -24,6 +24,15 @@
           "atestasi": { "type": ["string", "null"] },
           "homebase": { "type": ["string", "null"] },
           "foto": { "type": ["string", "null"] },
+          "portal_materi": {
+            "type": ["object", "null"],
+            "required": ["url"],
+            "properties": {
+              "nama": { "type": "string" },
+              "url": { "type": "string", "format": "uri" },
+              "keterangan": { "type": "string" }
+            }
+          },
           "profil": { "type": "object" },
           "sumber": { "type": "array", "items": { "type": "string", "format": "uri" } }
         }

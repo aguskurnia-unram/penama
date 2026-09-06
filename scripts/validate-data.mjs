@@ -39,6 +39,13 @@ for (const d of dosen.dosen) {
   if (d.foto && !/^aset\/foto\/[A-Za-z0-9._-]+\.(jpg|jpeg|png|webp)$/.test(d.foto)) {
     salah(`dosen ${label}: foto harus berupa jalur seperti aset/foto/nama.jpg di dalam repositori ini`);
   }
+  // Portal materi milik masing-masing dosen; null berarti belum punya.
+  if (d.portal_materi !== null && d.portal_materi !== undefined) {
+    if (!urlSah(d.portal_materi.url)) salah(`dosen ${label}: portal_materi.url wajib berupa URL sah`);
+    if (d.portal_materi.nama !== undefined && typeof d.portal_materi.nama !== 'string') {
+      salah(`dosen ${label}: portal_materi.nama harus berupa teks`);
+    }
+  }
   if (/\b\d{18}\b/.test(JSON.stringify(d))) salah(`dosen ${label}: terdeteksi angka 18 digit yang menyerupai NIP — data pribadi tidak boleh ditayangkan`);
 }
 benar(`dosen.json: ${dosen.dosen.length} entri diperiksa`);

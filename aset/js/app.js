@@ -18,6 +18,19 @@ const lencana = (status) =>
     ? '<span class="badge badge-ok">terverifikasi</span>'
     : '<span class="badge badge-tunggu">menunggu verifikasi</span>';
 
+// Blok portal materi pada kartu dosen. Slot ini selalu ada, terisi maupun
+// belum: dosen yang belum punya portal mandiri tetap memperlihatkan bahwa
+// tempatnya tersedia, bukan seolah fiturnya tidak berlaku baginya.
+const blokMateri = (d) =>
+  d.portal_materi
+    ? `<p style="margin-top:14px">
+         <a class="btn btn-utama" style="padding:8px 14px;font-size:14px"
+            href="${esc(d.portal_materi.url)}" target="_blank" rel="noopener noreferrer"
+            >${esc(d.portal_materi.nama || 'Portal Materi')} →</a>
+         ${d.portal_materi.keterangan ? `<br><span style="font-size:13.5px;color:var(--abu)">${esc(d.portal_materi.keterangan)}</span>` : ''}
+       </p>`
+    : `<p style="margin-top:14px;font-size:13.5px;color:var(--abu)">Portal materi mandiri belum tersedia.</p>`;
+
 // Inisial dipakai sebagai avatar selama belum ada foto, sehingga kartu tetap
 // seragam tanpa memuat gambar orang tanpa izin.
 const inisial = (nama) =>
@@ -100,6 +113,7 @@ async function renderDosen() {
           ${d.atestasi ? `<p style="margin-top:10px;font-size:14px;color:var(--abu)"><strong>Asal keterangan:</strong> ${esc(d.atestasi)}</p>` : ''}
           <div style="margin-top:10px">${(d.bidang_kajian || []).map((b) => `<span class="tag">${esc(b)}</span>`).join('')}</div>
           ${tautan ? `<p style="margin-top:12px;font-size:14px">${tautan}</p>` : ''}
+          ${blokMateri(d)}
         </article>`;
       })
       .join('');
@@ -167,6 +181,53 @@ async function renderPenelitian() {
   jenis?.addEventListener('change', gambar);
   gambar();
 
+}
+
+/* ---------- Halaman materi ---------- */
+async function renderMateri() {
+  const punya = document.getElementById('materi-tersedia');
+  const belum = document.getElementById('materi-belum');
+  if (!punya && !belum) return;
+
+  let data;
+  try {
+    data = await muat('dosen');
+  } catch (e) {
+    if (punya) punya.innerHTML = `<div class="kosong">${esc(e.message)}</div>`;
+    return;
+  }
+
+  const info = document.getElementById('meta-materi');
+  const berportal = data.dosen.filter((d) => d.portal_materi);
+  if (info) {
+    info.textContent = `${berportal.length} dari ${data.dosen.length} dosen telah memiliki portal materi mandiri · diperbarui ${data.meta.terakhir_diperbarui}`;
+  }
+
+  if (punya) {
+    punya.innerHTML = berportal.length
+      ? berportal
+          .map(
+            (d) => `<article class="kartu">
+              <span class="kode">${esc(d.portal_materi.nama || 'Portal Materi')}</span>
+              <h3>${esc(namaLengkap(d))}</h3>
+              ${d.portal_materi.keterangan ? `<p>${esc(d.portal_materi.keterangan)}</p>` : ''}
+              <p style="margin-top:12px"><a href="${esc(d.portal_materi.url)}" target="_blank" rel="noopener noreferrer">${esc(d.portal_materi.url.replace(/^https?:\/\//, ''))} →</a></p>
+            </article>`
+          )
+          .join('')
+      : '<div class="kosong">Belum ada portal materi yang terdaftar.</div>';
+  }
+
+  if (belum) {
+    const sisa = data.dosen.filter((d) => !d.portal_materi);
+    belum.innerHTML = sisa.length
+      ? `<div class="tabel-bungkus"><table>
+          <thead><tr><th>Dosen</th><th>Status</th></tr></thead>
+          <tbody>${sisa
+            .map((d) => `<tr><td>${esc(namaLengkap(d))}</td><td style="color:var(--abu)">Menunggu pendaftaran portal</td></tr>`)
+            .join('')}</tbody></table></div>`
+      : '<div class="kosong">Seluruh dosen telah memiliki portal materi.</div>';
+  }
 }
 
 /* ---------- Halaman jurnal ---------- */
@@ -242,6 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderDosen();
   renderPenelitian();
   renderJurnal();
+  renderMateri();
   renderKurikulum();
   const th = document.getElementById('tahun');
   if (th) th.textContent = new Date().getFullYear();

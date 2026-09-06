@@ -57,6 +57,26 @@ dan menandai entri **tanpa satu pun sumber atau URL profil** sebagai
 `menunggu_verifikasi` — sehingga nama tanpa rujukan tidak pernah tampil sebagai
 data resmi.
 
+## Mendaftarkan portal materi seorang dosen
+
+Setiap dosen dapat memiliki portal materi pembelajaran mandiri. Isi bidang
+`portal_materi` miliknya di `data/dosen.json`:
+
+```json
+"portal_materi": {
+  "nama": "Materi Penama",
+  "url": "https://materi.penama.online",
+  "keterangan": "Portal materi pembelajaran mandiri untuk kelas Pendidikan Agama Islam"
+}
+```
+
+Hanya `url` yang wajib. Selama nilainya `null`, kartu dosen menampilkan
+keterangan bahwa portalnya belum tersedia, dan namanya muncul pada daftar
+"Menunggu pendaftaran" di halaman [Materi Dosen](materi.html) — tempatnya sudah
+tersedia, tinggal diisi.
+
+Lewat pengimpor CSV, kolomnya bernama `portal_materi` dan `portal_materi_nama`.
+
 ## Mengubah tampilan atau isi halaman
 
 Berkas `*.html` di akar repositori **dihasilkan otomatis** oleh

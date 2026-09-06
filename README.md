@@ -17,6 +17,7 @@ sehingga bisa dirawat lintas tahun akademik tanpa utang teknis.
 | `index.html` | Ringkasan portal dan mata kuliah yang dinaungi Pusat MKWK |
 | `kurikulum.html` | Struktur MKWK (Pendidikan Agama, Pancasila, Bahasa Indonesia, Kewarganegaraan) dan MKWI (Literasi Digital Abad 21, Ekosistem Kepulauan, Bahasa Inggris) |
 | `pembelajaran.html` | Pendekatan pembelajaran PAI, perangkat (RPS, RTM, kontrak kuliah, portofolio), dan digitalisasi kelas |
+| `materi.html` | Portal materi pembelajaran mandiri milik tiap dosen |
 | `dosen.html` | Direktori dosen pengampu, dapat dicari dan disaring menurut status verifikasi |
 | `penelitian.html` | Basis data penelitian pendidikan agama |
 | `jurnal.html` | Direktori jurnal publikasi: SILA dan PANCA |

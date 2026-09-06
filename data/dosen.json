@@ -5,7 +5,8 @@
     "pengelola": "Pusat MKWK, LPMPP Universitas Mataram",
     "terakhir_diperbarui": "2026-09-06",
     "catatan_verifikasi": "Status \"terverifikasi\" berarti entri memiliki tautan sumber publik yang dapat ditelusuri pada kolom sumber. Status \"menunggu_verifikasi\" berarti nama dinyatakan oleh pengelola mata kuliah — dicatat pada kolom atestasi — namun tautan profil resminya (SINTA, Google Scholar, atau halaman staf Unram) belum dilampirkan; entri seperti ini belum layak dikutip sebagai data resmi. Nomor induk pegawai (NIP/NIDN) tidak dicantumkan sebelum ada persetujuan tertulis dari yang bersangkutan dan Pusat MKWK.",
-    "kebijakan_data_pribadi": "Direktori ini hanya memuat data profesional yang telah dipublikasikan secara terbuka oleh dosen yang bersangkutan (profil Scholar/SINTA/ResearchGate, halaman resmi unit). Permintaan koreksi atau penghapusan dapat diajukan melalui Pusat MKWK LPMPP Unram."
+    "kebijakan_data_pribadi": "Direktori ini hanya memuat data profesional yang telah dipublikasikan secara terbuka oleh dosen yang bersangkutan (profil Scholar/SINTA/ResearchGate, halaman resmi unit). Permintaan koreksi atau penghapusan dapat diajukan melalui Pusat MKWK LPMPP Unram.",
+    "catatan_portal_materi": "Setiap dosen dapat memiliki portal materi pembelajaran mandiri. Isi bidang portal_materi dengan url dan nama portalnya; biarkan null bila belum ada, dan kartu akan menampilkan keterangan bahwa portalnya belum tersedia."
   },
   "dosen": [
     {
@@ -44,7 +45,12 @@
       ],
       "homebase": null,
       "foto": null,
-      "atestasi": null
+      "atestasi": null,
+      "portal_materi": {
+        "nama": "Materi Penama",
+        "url": "https://materi.penama.online",
+        "keterangan": "Portal materi pembelajaran mandiri untuk kelas Pendidikan Agama Islam"
+      }
     },
     {
       "id": "lenny-herlina",
@@ -74,7 +80,8 @@
       "sumber": [
         "https://id.linkedin.com/in/lenny-herlina-ab90793a0",
         "https://fis.unj.ac.id/boie/?p=2871"
-      ]
+      ],
+      "portal_materi": null
     },
     {
       "id": "arif-nasrullah",
@@ -97,7 +104,8 @@
         "sinta": null,
         "researchgate": null
       },
-      "sumber": []
+      "sumber": [],
+      "portal_materi": null
     },
     {
       "id": "humamurrizqi",
@@ -120,7 +128,8 @@
         "sinta": null,
         "researchgate": null
       },
-      "sumber": []
+      "sumber": [],
+      "portal_materi": null
     },
     {
       "id": "jamaludin",
@@ -143,7 +152,8 @@
         "sinta": null,
         "researchgate": null
       },
-      "sumber": []
+      "sumber": [],
+      "portal_materi": null
     },
     {
       "id": "muhamad-safrudin",
@@ -166,7 +176,8 @@
         "sinta": null,
         "researchgate": null
       },
-      "sumber": []
+      "sumber": [],
+      "portal_materi": null
     },
     {
       "id": "muhammad-abdul-hafiz",
@@ -189,7 +200,8 @@
         "sinta": null,
         "researchgate": null
       },
-      "sumber": []
+      "sumber": [],
+      "portal_materi": null
     },
     {
       "id": "syapalarisa-sulthani",
@@ -212,7 +224,8 @@
         "sinta": null,
         "researchgate": null
       },
-      "sumber": []
+      "sumber": [],
+      "portal_materi": null
     }
   ]
 }
