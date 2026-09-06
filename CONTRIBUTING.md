@@ -26,6 +26,37 @@ pada direktori `data/`. Ubah berkasnya, bukan berkas HTML.
 - **Hormati permintaan penghapusan.** Dosen yang bersangkutan berhak meminta
   entrinya dihapus tanpa perlu memberi alasan.
 
+## Mengimpor banyak dosen sekaligus
+
+Bila daftar dosen disalin dari sumber resmi — [staf.unram.ac.id](https://staf.unram.ac.id),
+SINTA, Google Scholar, atau dokumen unit — pakai pengimpor CSV alih-alih
+menyunting JSON satu per satu:
+
+```bash
+node scripts/tambah-dosen.mjs daftar.csv          # tinjau dulu, tidak menulis apa pun
+node scripts/tambah-dosen.mjs daftar.csv --tulis  # simpan ke data/dosen.json
+node scripts/validate-data.mjs                    # periksa hasilnya
+```
+
+Baris pertama CSV adalah judul kolom; urutannya bebas dan hanya `nama` yang wajib:
+
+| Kolom | Isi |
+|---|---|
+| `nama` | **wajib**, tanpa gelar |
+| `gelar_depan`, `gelar_belakang` | mis. `Dr.` dan `S.Ag., M.Pd.I.` |
+| `unit` | bawaan: Pusat MKWK / MKWU, LPMPP Universitas Mataram |
+| `mata_kuliah`, `bidang` | beberapa nilai dipisah titik koma |
+| `scholar`, `sinta`, `researchgate` | URL profil |
+| `sumber` | URL lain, dipisah titik koma |
+
+Nilai bergelar yang memuat koma cukup diapit tanda kutip ganda:
+`"Ahmad, S.Ag., M.Pd.I."`.
+
+Pengimpor menolak menambah nama yang sudah ada, membuat `id` stabil dari nama,
+dan menandai entri **tanpa satu pun sumber atau URL profil** sebagai
+`menunggu_verifikasi` — sehingga nama tanpa rujukan tidak pernah tampil sebagai
+data resmi.
+
 ## Mengubah tampilan atau isi halaman
 
 Berkas `*.html` di akar repositori **dihasilkan otomatis** oleh

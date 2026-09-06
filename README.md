@@ -51,7 +51,9 @@ Yang sudah terisi dan terverifikasi:
 - 2 jurnal publikasi (SILA dan PANCA, dikelola Pusat MKWK LPMPP Unram);
 - struktur lengkap MKWK dan MKWI.
 
-Cara menambah entri ada di [`CONTRIBUTING.md`](CONTRIBUTING.md).
+Cara menambah entri ada di [`CONTRIBUTING.md`](CONTRIBUTING.md). Untuk
+memasukkan banyak dosen sekaligus dari daftar resmi, tersedia pengimpor CSV:
+`node scripts/tambah-dosen.mjs daftar.csv --tulis`.
 
 ## Menjalankan secara lokal
 
@@ -65,6 +67,7 @@ Data dimuat lewat `fetch`, jadi situs harus disajikan melalui server HTTP.
 
 ```bash
 node scripts/validate-data.mjs   # periksa keutuhan & aturan tata kelola data
+node scripts/tambah-dosen.mjs daftar.csv --tulis   # impor dosen dari CSV
 node scripts/build-pages.mjs     # bangun ulang berkas *.html dari generator
 ```
 
