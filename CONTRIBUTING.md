@@ -37,8 +37,8 @@ node scripts/build-pages.mjs
 
 dan commit hasilnya. CI akan gagal bila HTML tidak sinkron dengan generator.
 
-Gaya visual berada di `assets/css/style.css`, logika direktori di
-`assets/js/app.js`. Portal ini sengaja tanpa kerangka kerja dan tanpa
+Gaya visual berada di `aset/css/style.css`, logika direktori di
+`aset/js/app.js`. Portal ini sengaja tanpa kerangka kerja dan tanpa
 dependensi npm agar mudah dirawat lintas tahun akademik.
 
 ## Menjalankan secara lokal

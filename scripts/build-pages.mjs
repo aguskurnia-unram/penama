@@ -15,6 +15,9 @@ const NAV = [
   ['tentang.html', 'Tentang'],
 ];
 
+// Berkas pendukung portal berada di /aset/, bukan /assets/: pada apex
+// penama.online, /assets/ adalah milik bundel aplikasi pembelajaran, dan dua
+// direktori bernama sama akan saling menutupi.
 const kepala = (aktif, judul, deskripsi) => `<!doctype html>
 <html lang="id" data-basis=".">
 <head>
@@ -27,8 +30,8 @@ const kepala = (aktif, judul, deskripsi) => `<!doctype html>
 <meta property="og:type" content="website">
 <meta property="og:locale" content="id_ID">
 <link rel="canonical" href="https://penama.online/${aktif === 'index.html' ? '' : aktif}">
-<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">\n<link rel="stylesheet" href="./assets/css/style.css">
-<script defer src="./assets/js/app.js"></script>
+<link rel="icon" href="./aset/favicon.svg" type="image/svg+xml">\n<link rel="stylesheet" href="./aset/css/style.css">
+<script defer src="./aset/js/app.js"></script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
